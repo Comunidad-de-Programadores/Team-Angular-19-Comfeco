@@ -3,11 +3,13 @@ export class User{
     email:string;
     password:string;
     emailVerified:boolean;
+    displayName:string;
 
     constructor(){
         this.email = '';
         this.password = '';
         this.emailVerified = false;
         this.uid = '';
+        this.displayName = '';
     }
 }

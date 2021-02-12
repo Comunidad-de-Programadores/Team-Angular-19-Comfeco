@@ -21,8 +21,9 @@ export class AppComponent {
     //this.create();
     //await this.login();
     //this.userService.logoutUser();
-    //this.dataService.sendPasswordResetEmail("ervinsv92@gmail.com");
-    console.log(this.userService.user);
+    //this.userService.sendPasswordResetEmail("ervinsv92@gmail.com");
+    //this.userService.existsNick("");
+    //console.log(this.userService.user);
   }
 
   //Funciones de ejemplo
@@ -40,12 +41,13 @@ export class AppComponent {
   //Funciones de ejemplo
   async create(){
     let user = new User();
-    user.email = 'ervinsv92@gmail.com';
+    user.email = 'ervinsv93@gmail.com';
     user.password = '123456';
+    user.displayName = "";
     try {
       await this.userService.signUpUser(user); 
     } catch (error) {
-      console.error(error.message)
+      console.error(error.message)//Siempre leer usando el atributo mensaje, tanto para los throw creados manualmente como para los errores de firebase
     }
   }
 }
