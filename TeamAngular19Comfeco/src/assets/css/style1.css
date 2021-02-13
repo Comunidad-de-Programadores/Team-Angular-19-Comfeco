@@ -1,0 +1,47 @@
+footer{
+    padding: 10px 0;
+    height: 50px;
+    color: #FFF;
+    width: 100%;
+}
+
+.border-purple{
+    border-color: #89188B;
+}
+
+.btn-purple{
+    background-color: #8A178C;
+    color: #FFF;
+}
+
+.form-group a{
+    color: #8A178C;
+}
+
+.btn-purple{
+    background-color: #89188B;
+    border: none;
+}
+
+.btn-purple:hover{
+    background-color: #89188B;
+}
+
+.fondo-negro{
+    background-color: #000;
+}
+
+.btn-outline-purple{
+    border: 1px solid #89188B;
+    color: #89188B;
+}
+
+.btn-outline-purple:hover{
+    background-color: #89188B;
+    color: #000;
+}
+
+body{
+    height: 100%;
+}
+
