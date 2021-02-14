@@ -46,7 +46,9 @@ export class UserService {
     (await this.auth.currentUser).updateProfile({displayName:user.displayName});
 
     let userColl:IUsersCollection = {uid: data.user.uid,email:user.email, displayName:user.displayName};
+
     this.firestore.collection<IUsersCollection>(CollectionEnum.users).doc(userColl.uid).set(userColl);
+    
 
     await this.sendEmailVerification()
     return await this.createObjectUser(data.user);

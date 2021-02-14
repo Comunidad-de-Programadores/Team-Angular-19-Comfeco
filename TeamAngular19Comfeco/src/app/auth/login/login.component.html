@@ -1,18 +1,29 @@
 <h3>Inicio de Sesión</h3>
+<form autocomplete="off" [formGroup]="form" (ngSubmit)="login()">
+  <div>
+    <div class="form-group">
+      <label for="correo">Correo</label>
+      <input type="email" class="form-control" id="correo" aria-describedby="emailHelp" formControlName="email"
+      [class.is-invalid]="emailNoValido">
+      <div class="invalid-feedback">
+        El email es requerido.
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label for="pass">Contraseña</label>
+      <input type="password" class="form-control" id="pass" formControlName="pass"
+      [class.is-invalid]="passNoValido">
+      <div class="invalid-feedback">
+        La contraseña es requerida.
+      </div>
+    </div>
+    <div class="form-group">
+      <a routerLink="recovery-password">Olvidó su contraseña?</a>
+    </div>
+    <div class="mt-4">
+      <button type="submit" class="btn btn-purple btn-block btn-lg">Iniciar Sesión</button>
+    </div>
+  </div>
+</form>
 
-<div class="form-group">
-  <label for="correo">Correo</label>
-  <input type="email" class="form-control" id="correo" aria-describedby="emailHelp">
-</div>
-
-<div class="form-group">
-  <label for="pass">Contraseña</label>
-  <input type="password" class="form-control" id="pass">
-</div>
-<div class="form-group">
-  <a routerLink="recovery-password">Olvidó su contraseña?</a>
-</div>
-<div class="mt-4">
-
-  <button type="submit" class="btn btn-purple btn-block btn-lg">Iniciar Sesión</button>
-</div>

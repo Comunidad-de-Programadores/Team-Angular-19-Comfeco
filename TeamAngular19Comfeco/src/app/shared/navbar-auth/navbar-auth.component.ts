@@ -11,5 +11,4 @@ export class NavbarAuthComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
