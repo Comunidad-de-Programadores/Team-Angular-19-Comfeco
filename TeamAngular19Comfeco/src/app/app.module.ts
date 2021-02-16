@@ -7,6 +7,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {PagesModule} from './pages/pages.module';
 import {SharedModule} from './shared/shared.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import {SharedModule} from './shared/shared.module';
     AngularFireModule.initializeApp(environment.firebase),
     AppRoutingModule,
     PagesModule,
+    AuthModule,
     SharedModule
   ],
   providers: [],
