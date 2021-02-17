@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { UserService } from 'src/app/services/user.service';
 
-// import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
@@ -25,7 +25,10 @@ export class RegisterComponent {
     Validators: this.passwordIguales('password','password1')
   });
 
-  constructor(private fb: FormBuilder, private userService: UserService, private  router: Router) { }
+  constructor(private fb: FormBuilder, 
+              private userService: UserService, 
+              private  router: Router, 
+              private toastr: ToastrService) { }
 
 
   registerUsuario() {
@@ -36,12 +39,13 @@ export class RegisterComponent {
     }
     this.userService.signUpUser(this.registerForm.value)
       .then( () => {
+        this.toastr.success('Usuario Registrado Correctamente')
         this.router.navigateByUrl("/login")
         // console.log(this.registerForm.value);
       })
       .catch((e: Error)=>{
-        console.log(e.message);
-        // this.toastr.error(e.message);
+        // console.log(e.message);
+        this.toastr.error(e.message);
       })
   }
 

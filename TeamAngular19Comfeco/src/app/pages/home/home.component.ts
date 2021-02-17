@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   cerrarSession(){
     try {
       this.userService.logoutUser();
-      this.router.navigate(['/auth'])
+      this.router.navigate(['/', 'login'])
     } catch (error) {
       
     }

@@ -41,9 +41,9 @@ export class AppComponent {
   //Funciones de ejemplo
   async create(){
     let user = new User();
-    user.email = 'ervinsv93@gmail.com';
+    user.email = 'ervinsv92@gmail.com';
     user.password = '123456';
-    user.displayName = "";
+    user.displayName = "Ervin";
     try {
       await this.userService.signUpUser(user); 
     } catch (error) {
