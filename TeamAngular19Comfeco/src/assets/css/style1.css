@@ -32,12 +32,15 @@ footer{
 }
 
 .btn-outline-purple{
-    border: 1px solid #89188B;
+    /*border: 3px solid #89188B;
     color: #89188B;
+    font-weight: bold;*/
+    border: 1px solid #FFF;
+    color: #FFF;
 }
 
 .btn-outline-purple:hover{
-    background-color: #89188B;
+    background-color: #FFF;
     color: #000;
 }
 
@@ -45,3 +48,6 @@ body{
     height: 100%;
 }
 
+.inner{
+    text-align:center;
+  }
