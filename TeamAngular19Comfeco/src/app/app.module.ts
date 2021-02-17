@@ -9,6 +9,7 @@ import {PagesModule} from './pages/pages.module';
 import {SharedModule} from './shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ToastrModule} from 'ngx-toastr';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {ToastrModule} from 'ngx-toastr';
     PagesModule,
     SharedModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

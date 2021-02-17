@@ -45,8 +45,14 @@ export class LoginComponent implements OnInit {
     user.password = this.form.controls.pass.value;
 
     try {
-      await this.userService.signInUser(user);  
-      this.router.navigate(['/private', 'home']);
+      let usuario:User = await this.userService.signInUser(user);  
+
+      if(usuario.emailVerified){
+        this.router.navigate(['/private', 'home']);
+      }else{
+        alert("Debe verificar el email para continuar")
+      }
+      
     } catch (error) {
       alert(error.message)
     }

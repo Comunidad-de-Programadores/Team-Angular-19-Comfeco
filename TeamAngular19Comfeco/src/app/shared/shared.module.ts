@@ -3,8 +3,6 @@ import {CommonModule} from '@angular/common';
 import {FooterComponent} from './footer/footer.component';
 import {NavbarAuthComponent} from './navbar-auth/navbar-auth.component';
 import {NavbarRecoveryPasswordComponent} from './navbar-recovery-password/navbar-recovery-password.component';
-import {RouterModule} from "@angular/router";
-
 
 @NgModule({
   declarations: [
@@ -13,8 +11,7 @@ import {RouterModule} from "@angular/router";
     NavbarRecoveryPasswordComponent
   ],
   imports: [
-    CommonModule,
-    RouterModule
+    CommonModule
   ],
   exports: [
     FooterComponent,
