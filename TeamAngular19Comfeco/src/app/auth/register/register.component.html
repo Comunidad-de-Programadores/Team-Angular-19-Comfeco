@@ -1,34 +1,53 @@
 <h3>Registro</h3>
-<div class="form-group">
-  <label for="nick">Nick</label>
-  <input type="text" class="form-control" id="nick" aria-describedby="Nick">
-</div>
-
-<div class="form-group">
-  <label for="emailRegister">Correo</label>
-  <input type="email" class="form-control" id="emailRegister" aria-describedby="emailHelp">
-</div>
-
-<div class="form-group">
-  <label for="passwordRegister">Contraseña</label>
-  <input type="password" class="form-control" id="passwordRegister">
-</div>
-
-<div class="form-group">
-  <label for="confirmPasswordRegister">Confirmar Contraseña</label>
-  <input type="password" class="form-control" id="confirmPasswordRegister">
-</div>
-
-
-<div class="mt-4">
-  <button type="submit" class="btn btn-purple btn-block btn-lg">Crear una cuenta</button>
-</div>
-<div class="form-group mt-1">
-  <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-    <label class="form-check-label" for="defaultCheck1">
-      <span><a href="#">Términos y Condiciones</a> y <a
-        href="#">Política de privacidad y protección de datos</a> </span>
-    </label>
+<form action="" [formGroup]="registerForm" (ngSubmit)="registerUsuario()" >
+  <div class="form-group">
+    <label for="nick">Nick</label>
+    <input type="text" class="form-control" id="nick" aria-describedby="Nick" formControlName="displayName">
+    <div class="text-danger" *ngIf="campoNoValido('displayName')">
+      El Nick es Obligatorio
+    </div>
   </div>
-</div>
+  
+  <div class="form-group">
+    <label for="emailRegister">Correo</label>
+    <input type="email" class="form-control" id="emailRegister" aria-describedby="emailHelp" formControlName="email">
+    <div class="text-danger" *ngIf="campoNoValido('email')">
+      El Email es Obligatorio
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="passwordRegister">Contraseña</label>
+    <input type="password" class="form-control" id="passwordRegister" formControlName="password">
+    <div class="text-danger" *ngIf="campoNoValido('password')">
+      La Contraseña debe ser Obligatoria
+    </div>
+    <div class="text-danger" *ngIf="contrasenaValidos()">
+      Contraseña no validos
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="confirmPasswordRegister">Confirmar Contraseña</label>
+    <input type="password" class="form-control" id="confirmPasswordRegister" formControlName="password1">
+    <div class="text-danger" *ngIf="contrasenaValidos()">
+      Contraseña no validos
+    </div>
+  </div>
+  <div class="mt-4">
+    <button type="submit" class="btn btn-purple btn-block btn-lg">Crear una cuenta</button>
+  </div>
+  <div class="form-group mt-1">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" formControlName="terminos">
+      <label class="form-check-label" for="defaultCheck1">
+        <span><a href="#">Términos y Condiciones</a> y <a
+          href="#">Política de privacidad y protección de datos</a> </span>
+      </label>
+      <div class="text-danger" *ngIf="aceptaTerminos()">
+        Los Terminos y Condiciones deben ser marcado.
+      </div>
+    </div>
+  </div>
+  
+</form>
