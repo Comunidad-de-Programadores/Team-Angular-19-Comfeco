@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { UserService } from 'src/app/services/user.service';
@@ -20,7 +20,7 @@ export class RegisterComponent {
     email       : ['', [ Validators.required, Validators.email ]],
     password    : ['', Validators.required],
     password1   : ['', Validators.required],
-    terminos    : [ true , Validators.required],
+    terminos    : [ false , Validators.required],
   },{
     Validators: this.passwordIguales('password','password1')
   });
@@ -34,7 +34,7 @@ export class RegisterComponent {
   registerUsuario() {
     this.formSubmitted = true;
 
-    if (this.registerForm.invalid) {
+    if (this.registerForm.invalid || !this.registerForm.get('terminos').value) {
       return;
     }
     this.userService.signUpUser(this.registerForm.value)
@@ -90,7 +90,5 @@ export class RegisterComponent {
         }
     }
   }
-
-  
 
 }
