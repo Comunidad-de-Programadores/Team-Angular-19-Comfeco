@@ -16,7 +16,7 @@
       <input type="email" class="form-control" id="correo" aria-describedby="emailHelp" formControlName="email"
       [class.is-invalid]="emailNoValido">
       <div class="invalid-feedback">
-        El email es requerido.
+        El formato del email es incorrecto.
       </div>
     </div>
     
@@ -29,7 +29,7 @@
       </div>
     </div>
     <div class="form-group">
-      <a [routerLink]="['/recovery-password']">Olvidó su contraseña?</a>
+      <a [routerLink]="['/recovery-password']">¿Olvidó su contraseña?</a>
     </div>
     <div class="mt-4">
       <button type="submit" class="btn btn-purple btn-block btn-lg">Iniciar Sesión</button>
