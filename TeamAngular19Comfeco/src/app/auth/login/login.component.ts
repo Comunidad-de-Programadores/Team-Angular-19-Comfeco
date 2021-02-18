@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/class/User';
 import { UserService } from 'src/app/services/user.service';
 
@@ -12,7 +13,7 @@ import { UserService } from 'src/app/services/user.service';
 export class LoginComponent implements OnInit {
 
   form:FormGroup;
-  constructor(private fb:FormBuilder, private userService:UserService, private router:Router) {
+  constructor(private fb:FormBuilder, private userService:UserService, private router:Router, private toastr: ToastrService) {
     this.crearFormulario();
   }
 
@@ -50,7 +51,7 @@ export class LoginComponent implements OnInit {
       if(usuario.emailVerified){
         this.router.navigate(['/private', 'home']);
       }else{
-        alert("Debe verificar el email para continuar")
+        this.toastr.warning("Debe verificar el email para continuar");
       }
       
     } catch (error) {
