@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
 
   crearFormulario(){
     this.form = this.fb.group({
-      email:['', Validators.required],
+      email:['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]],
       pass:['', Validators.required],
     })
   }
