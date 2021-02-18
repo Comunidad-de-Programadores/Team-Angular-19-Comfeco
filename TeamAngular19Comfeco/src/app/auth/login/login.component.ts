@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
       }
       
     } catch (error) {
-      alert(error.message)
+      this.toastr.warning(error.message);
     }
   }
 
