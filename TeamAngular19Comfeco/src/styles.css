@@ -20,3 +20,9 @@ app-footer {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgb(137 24 139 / 24%);
 }
+
+.centrar-contenido{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
