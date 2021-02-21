@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from '../class/User';
-import { IUsersCollection } from '../class/IUserCollection';
+import { IUsersCollection } from '../class/IUsersCollection';
 import { SessionEnum } from '../enum/SessionEnum';
 import { CollectionEnum } from '../enum/CollectionEnum';
 
@@ -50,7 +50,7 @@ export class UserService {
     this.firestore.collection<IUsersCollection>(CollectionEnum.users).doc(userColl.uid).set(userColl);
     
 
-    await this.sendEmailVerification()
+    await this.sendEmailVerification();
     return await this.createObjectUser(data.user);
   }
 

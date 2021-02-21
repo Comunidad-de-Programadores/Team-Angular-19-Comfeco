@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
           control.markAsTouched();
       });
     }
+    
     let user = new User();
     user.email = this.form.controls.email.value;
     user.password = this.form.controls.pass.value;
