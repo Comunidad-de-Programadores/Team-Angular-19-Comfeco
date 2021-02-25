@@ -1,0 +1,9 @@
+<swiper  class="swiper-container" fxFlex="auto" [config]="config">
+  <div class="swiper-slide" *ngFor="let sponsor of sponsors">
+    <div class="text-center">
+      <img [src]="sponsor.urlImage" [alt]="sponsor.name" class="circle" style="width: 100px">
+    </div>
+  </div>
+
+
+</swiper>
