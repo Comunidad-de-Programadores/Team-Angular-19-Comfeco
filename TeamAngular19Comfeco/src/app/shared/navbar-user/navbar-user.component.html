@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-md navbar-dark fondo-negro">
+    <a class="navbar-brand" routerLink="auth">
+        <img src="assets/img/logos/logo1.png" width="150" height="45" alt="Logo de Comfeco" loading="lazy">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+        </ul>
+        <form class="form-inline">
+            <i class="far fa-bell"></i>
+            <div class="perfil">
+                <div class="foto-perfil">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{usuario}}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" (click)="cerrarSession()">Cerrar sesión</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</nav>

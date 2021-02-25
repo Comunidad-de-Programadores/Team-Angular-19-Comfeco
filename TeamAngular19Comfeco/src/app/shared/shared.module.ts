@@ -4,12 +4,14 @@ import {FooterComponent} from './footer/footer.component';
 import {NavbarAuthComponent} from './navbar-auth/navbar-auth.component';
 import {NavbarRecoveryPasswordComponent} from './navbar-recovery-password/navbar-recovery-password.component';
 import { RouterModule } from '@angular/router';
+import { NavbarUserComponent } from './navbar-user/navbar-user.component';
 
 @NgModule({
   declarations: [
     FooterComponent,
     NavbarAuthComponent,
-    NavbarRecoveryPasswordComponent
+    NavbarRecoveryPasswordComponent,
+    NavbarUserComponent
   ],
   imports: [
     CommonModule,
@@ -18,7 +20,8 @@ import { RouterModule } from '@angular/router';
   exports: [
     FooterComponent,
     NavbarAuthComponent,
-    NavbarRecoveryPasswordComponent
+    NavbarRecoveryPasswordComponent,
+    NavbarUserComponent
   ]
 })
 export class SharedModule {
