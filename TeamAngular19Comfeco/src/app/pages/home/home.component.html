@@ -1,13 +1,12 @@
-<p>Bienvenido {{userService.user.displayName}} - <button type="button" (click)="cerrarSession()">Salir</button></p>
+<app-navbar-user usuario={{userService.user.displayName}}></app-navbar-user>
 
-<div class="container-fluid">
+
+<div class="container-fluid mt-5">
     <div class="row centrar-contenido">
         <div class="col-8 text-center">
             <h2>Bienvenidos a Community Fest and Code</h2>
             <h3>!Conoce gente, aprende y gana!</h3>
-            <p>La próxima edición regresa el 2022, en la cual se planea involucrar a todos los programadores
-                independientemente del área de conocimiento que se encuentre,
-                todo con un mismo proposito, aprender en comunidad.</p>
+            <p>La próxima edición regresa el 2022, en la cual se planea involucrar a todos los programadores independientemente del área de conocimiento que se encuentre, todo con un mismo proposito, aprender en comunidad.</p>
         </div>
     </div>
 
@@ -17,7 +16,7 @@
         </div>
         <div class="col-lg-6">
             Carruseles
-                <app-contador></app-contador>
+            <app-contador></app-contador>
         </div>
         <div class="col-lg-3">
             En blanco
