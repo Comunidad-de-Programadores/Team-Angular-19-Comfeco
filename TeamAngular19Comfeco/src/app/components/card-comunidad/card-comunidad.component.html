@@ -7,42 +7,18 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="">
+            <div class=""*ngFor="let item of communitysCollection" >
                 <div class="">
-                    <img style="width: 41px;" class="rounded float-left" src="https://www.notion.so/image/https%3A%2F%2Fwww.comfeco.com%2Fimages%2Fmaskable_icon.png?table=block&id=b855d8de-0626-4fdd-bc4c-1ea8ac48dfc2&spaceId=3ddeb035-e6f3-4799-b6a5-242428edf271&width=500&userId=&cache=v2" alt="">
+                    <img style="width: 41px;" class="rounded float-left" [src]="item.urlImage" alt="">
                 </div>
                 <div class="" style="font-size: 15px;">
-                   Comunidad de Programadores
+                   {{ item.name }}
                 </div>
                 <div class="float-right" style="margin-top: -30px;">
                     <a href="">Unirse</a>
                 </div>
-            </div>
-            <hr>
-            <div class="">
-                <div class="">
-                    <img style="width: 41px;" class="rounded float-left" src="https://www.notion.so/image/https%3A%2F%2Fwww.comfeco.com%2Fimages%2Fmaskable_icon.png?table=block&id=b855d8de-0626-4fdd-bc4c-1ea8ac48dfc2&spaceId=3ddeb035-e6f3-4799-b6a5-242428edf271&width=500&userId=&cache=v2" alt="">
-                </div>
-                <div class="" style="font-size: 15px;">
-                   El lenguaje de los programadores
-                </div>
-                <div class="float-right" style="margin-top: -30px;">
-                    <a href="">Unirse</a>
-                </div>
-            </div>
-            <hr>
-            <div class="">
-                <div class="" style="font-size: 15px;">
-                    <img style="width: 41px;" class="rounded float-left" src="https://www.notion.so/image/https%3A%2F%2Fwww.comfeco.com%2Fimages%2Fmaskable_icon.png?table=block&id=b855d8de-0626-4fdd-bc4c-1ea8ac48dfc2&spaceId=3ddeb035-e6f3-4799-b6a5-242428edf271&width=500&userId=&cache=v2" alt="">
-                </div>
-                <div class="">
-                   Latam Dev                        
-                </div>
-                <div class="float-right" style="margin-top: -30px;">
-                    <a href="">Unirse</a>
-                </div>
-            </div>
-            <hr>
+                <hr>
+            </div>        
         </div>
       </div>
 </div>
