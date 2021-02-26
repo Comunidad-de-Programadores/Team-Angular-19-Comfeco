@@ -18,7 +18,11 @@ export class CarouselContentCreatorsComponent implements OnInit {
     mousewheel: true,
     scrollbar: false,
     navigation: true,
-    pagination: false,
+    pagination:
+    {
+    el:'.swiper-pagination',
+    clickable: true
+    },
     breakpoints: {
       // when window width is >= 320px
       320: {
@@ -36,7 +40,11 @@ export class CarouselContentCreatorsComponent implements OnInit {
         spaceBetween: 30,
       }
     },
-    loop: true
+    loop: true,
+    autoplay:{
+      delay:3000,
+      disableOnInteraction: false
+    }
   };
 
   constructor() {

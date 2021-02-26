@@ -1,4 +1,16 @@
-.swiper-button-next, .swiper-button-prev {
-  color: black !important;
+.swiper-button-next,
+.swiper-button-prev {
+    color: black !important;
+}
 
+.swiper-button-prev {
+    padding-right: 190px;
+}
+
+.swiper-button-next {
+    padding-left: 50px;
+}
+
+.swiper-slide {
+    margin-bottom: 50px;
 }

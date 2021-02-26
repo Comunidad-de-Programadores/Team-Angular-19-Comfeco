@@ -1,23 +1,24 @@
-
-    <div class="card" >
-        <div class="card-header">
-            <div class="float-left">Comunidades</div>
-            <div class="float-right">
-                <a href="">Ver mas...</a>
-            </div>
+<div class="card">
+    <div class="card-header comunidad-header">
+        <div class="float-left">Comunidades</div>
+        <div class="float-right">
+            <a href="">Ver mas...</a>
         </div>
-        <div class="card-body">
-            <div class="" *ngFor="let item of communitysCollection" >
+    </div>
+    <div class="card-body">
+        <div class="comunidad" *ngFor="let item of communitysCollection">
+            <div class="celda">
                 <div class="">
-                    <img style="width: 41px;" class="rounded float-left" [src]="item.urlImage" alt="">
+                    <img style="width: 41px;" class="rounded float-left " [src]="item.urlImage" alt="">
                 </div>
                 <div class="" style="font-size: 15px;">
-                   {{ item.name }}
+                    {{ item.name }}
                 </div>
-                <div class="float-right" style="margin-top: -30px;">
+                <div class="float-right unirse">
                     <a href="">Unirse</a>
                 </div>
-                <hr>
             </div>
+            <hr style="margin-top:25px;">
         </div>
-      </div>
+    </div>
+</div>

@@ -1,37 +1,39 @@
-footer{
+footer {
     padding: 10px 0;
     height: 50px;
     color: #FFF;
     width: 100%;
 }
 
-.border-purple{
+.border-purple {
     border-color: #89188B;
 }
 
-.btn-purple{
+.btn-purple {
     background-color: #8A178C;
     color: #FFF;
 }
 
-.form-group a{
+.form-group a {
     color: #8A178C;
 }
 
-.btn-purple{
+.btn-purple {
     background-color: #89188B;
     border: none;
 }
 
-.btn-purple:hover{
+.btn-purple:hover {
     background-color: #89188B;
 }
 
-.fondo-negro{
+.fondo-negro {
     background-color: #000;
+    /* background: rgb(0, 0, 0);
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 27%, rgba(50, 8, 83, 1) 100%);*/
 }
 
-.btn-outline-purple{
+.btn-outline-purple {
     /*border: 3px solid #89188B;
     color: #89188B;
     font-weight: bold;*/
@@ -39,15 +41,27 @@ footer{
     color: #FFF;
 }
 
-.btn-outline-purple:hover{
+.btn-outline-purple:hover {
     background-color: #FFF;
     color: #000;
 }
 
-body{
+body {
     height: 100%;
 }
 
-.inner{
-    text-align:center;
-  }
+.inner {
+    text-align: center;
+}
+
+
+/*Sección de Comunidad*/
+
+.comunidad-header {
+    background-color: #000;
+    color: #FFF;
+}
+
+.unirse a {
+    color: #89188B;
+}

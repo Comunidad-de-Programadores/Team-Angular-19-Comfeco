@@ -19,7 +19,11 @@ export class CarouselSponsorsComponent implements OnInit {
     mousewheel: true,
     scrollbar: false,
     navigation: true,
-    pagination: false,
+    pagination:
+    {
+    el:'.swiper-pagination',
+    clickable: true
+    },
     breakpoints: {
       // when window width is >= 320px
       320: {
