@@ -3,7 +3,6 @@ import { IEventCollection } from 'src/app/class/IEventCollection';
 import { DataService } from 'src/app/services/data.service';
 import { interval } from 'rxjs'; 
 
-
 @Component({
   selector: 'app-contador',
   templateUrl: './contador.component.html',
@@ -12,7 +11,6 @@ import { interval } from 'rxjs';
 export class ContadorComponent implements OnInit {
 
   eventDate: IEventCollection;
-
   day: number;
   hour: number;
   minutes: number;
@@ -20,16 +18,15 @@ export class ContadorComponent implements OnInit {
 
   constructor(private dataService: DataService) { }
 
-  ngOnInit(): void {
-  this.getEventContador();
-  this.getSeconds$();
+  async ngOnInit() {
+    await this.getEventContador();
+    this.getSeconds$();
   }
 
    async getEventContador() {
      await this.dataService.getEvent()
      .then( (resp: IEventCollection) => {
        this.eventDate = resp;
-      //  console.log(resp);
      })
      .catch( (err) => {
        console.log(err);
@@ -39,10 +36,25 @@ export class ContadorComponent implements OnInit {
 
   getSeconds$() {
     return interval(1000).subscribe(() => {
-        this.day = (this.eventDate.day + new Date().getDate());
-        this.hour = new Date().getHours();
-        this.minutes = new Date().getMinutes();
-        this.seconds = new Date().getSeconds();
+        let fechaActual = new Date().getTime();
+        let fechaEvento = new Date(this.eventDate.year, this.eventDate.month, this.eventDate.day, this.eventDate.hour).getTime();
+        let diferencia:number = fechaEvento - fechaActual;
+        
+        let dias:number = Math.trunc(diferencia / (1000 * 3600 * 24));
+        diferencia = diferencia - (dias * (1000*3600*24))
+
+        let horas:number = Math.trunc(diferencia / (1000 * 3600));
+        diferencia = diferencia - (horas * (1000*3600))
+
+        let minutos:number = Math.trunc(diferencia / (1000 * 60));
+        diferencia = diferencia - (minutos * (1000*60))
+
+        let segundos:number = Math.trunc(diferencia / (1000));
+
+        this.day = dias;
+        this.hour = horas;
+        this.minutes = minutos;
+        this.seconds = segundos;
     });
   }
 
