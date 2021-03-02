@@ -1,0 +1,44 @@
+/**
+* Morado logo comfeco #89168b
+* Amarillo logo comfeco #fdb602       
+*/
+
+.cardCreators{
+    display: flex;
+    background-color: #89168b;
+    padding: 0.2rem;
+    border-radius: 10px;
+    align-items: center;
+    flex-flow: column wrap;
+
+    -webkit-box-shadow: inset 5px 5px 5px 5px rgba(253,182,2,0.81);
+    -moz-box-shadow: inset 5px 5px 5px 5px rgba(253,182,2,0.81);
+    box-shadow: inset 5px 5px 5px 5px rgba(253,182,2,0.81);
+}
+
+.languajeIcon{
+    display: block;
+    height: 2.5rem;
+}
+
+.creatorImg{
+    display: flex;
+    height: 12.5rem;
+    padding: 7px;
+    border-radius: 15px;
+    width: 100%;
+}
+
+.creatorName{
+    color: #fdb602;
+    -webkit-text-stroke:1px #9d7307;
+    font-weight: bold;
+    padding: 0.1rem;
+    font-size: inherit;
+}
+
+.textoUnaLinea{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}

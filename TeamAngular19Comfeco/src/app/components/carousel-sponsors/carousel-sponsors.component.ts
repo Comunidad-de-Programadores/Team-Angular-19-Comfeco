@@ -25,7 +25,10 @@ export class CarouselSponsorsComponent implements OnInit {
     clickable: true
     },
     breakpoints: {
-      // when window width is >= 320px
+      // when window width is >= 1px
+      1: {
+        slidesPerView: 1,
+      },
       320: {
         slidesPerView: 2,
       },

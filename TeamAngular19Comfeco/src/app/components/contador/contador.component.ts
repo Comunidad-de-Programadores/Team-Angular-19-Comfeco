@@ -10,7 +10,7 @@ import { interval } from 'rxjs';
 })
 export class ContadorComponent implements OnInit {
 
-  eventDate: IEventCollection;
+  event: IEventCollection;
   day: number;
   hour: number;
   minutes: number;
@@ -26,7 +26,7 @@ export class ContadorComponent implements OnInit {
    async getEventContador() {
      await this.dataService.getEvent()
      .then( (resp: IEventCollection) => {
-       this.eventDate = resp;
+       this.event = resp;
      })
      .catch( (err) => {
        console.log(err);
@@ -37,7 +37,7 @@ export class ContadorComponent implements OnInit {
   getSeconds$() {
     return interval(1000).subscribe(() => {
         let fechaActual = new Date().getTime();
-        let fechaEvento = new Date(this.eventDate.year, this.eventDate.month, this.eventDate.day, this.eventDate.hour).getTime();
+        let fechaEvento = new Date(this.event.year, this.event.month, this.event.day, this.event.hour).getTime();
         let diferencia:number = fechaEvento - fechaActual;
         
         let dias:number = Math.trunc(diferencia / (1000 * 3600 * 24));
