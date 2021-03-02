@@ -5,6 +5,7 @@ import {ContadorComponent} from './contador/contador.component';
 import {CarouselSponsorsComponent} from './carousel-sponsors/carousel-sponsors.component';
 import {SwiperModule} from "ngx-swiper-wrapper";
 import { CarouselContentCreatorsComponent } from './carousel-content-creators/carousel-content-creators.component';
+import { EditarPerfilComponent } from './editar-perfil/editar-perfil.component';
 
 
 @NgModule({
@@ -12,7 +13,8 @@ import { CarouselContentCreatorsComponent } from './carousel-content-creators/ca
     CardComunidadComponent,
     ContadorComponent,
     CarouselSponsorsComponent,
-    CarouselContentCreatorsComponent
+    CarouselContentCreatorsComponent,
+    EditarPerfilComponent
   ],
   imports: [
     CommonModule,
@@ -22,6 +24,7 @@ import { CarouselContentCreatorsComponent } from './carousel-content-creators/ca
     CardComunidadComponent,
     ContadorComponent,
     CarouselSponsorsComponent,
+    EditarPerfilComponent,
     CarouselContentCreatorsComponent
   ]
 })

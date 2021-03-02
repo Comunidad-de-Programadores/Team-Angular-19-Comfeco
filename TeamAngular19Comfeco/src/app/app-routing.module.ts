@@ -7,6 +7,8 @@ import {RegisterComponent} from './auth/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import {HomeComponent} from './pages/home/home.component';
 import {PagesComponent} from './pages/pages.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
 
 const ROUTES: Routes = [
   { path: '',
@@ -22,7 +24,9 @@ const ROUTES: Routes = [
     path: 'private',
     component: PagesComponent,
     children: [
-      { path: 'home', component: HomeComponent, canActivate:[AuthGuard] }
+      { path: 'home', component: HomeComponent, canActivate:[AuthGuard] },
+      { path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard]},
+      { path: 'editar-perfil', component: EditarPerfilComponent, canActivate: [AuthGuard]}
     ]
   },
   {path: '**', redirectTo: '/login', pathMatch: 'full'}
