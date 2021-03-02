@@ -17,7 +17,7 @@ export class CarouselContentCreatorsComponent implements OnInit {
     keyboard: true,
     mousewheel: true,
     scrollbar: false,
-    navigation: true,
+    navigation: false,
     pagination:
     {
     el:'.swiper-pagination',
@@ -36,9 +36,17 @@ export class CarouselContentCreatorsComponent implements OnInit {
       },
       // when window width is >= 640px
       640: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+      1366: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+      1367: {
         slidesPerView: 4,
         spaceBetween: 30,
-      }
+      },
     },
     loop: true,
     autoplay:{
