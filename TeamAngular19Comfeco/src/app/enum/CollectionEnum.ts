@@ -7,5 +7,8 @@ export enum CollectionEnum{
     communitys = "communitys",
     contentCreators = "contentCreators",
     sponsors = "sponsors",
-    event = "event"
+    event = "event",
+    knowledgeArea = "knowledgeArea",
+    events = "events",
+    badges = "badges"
 }

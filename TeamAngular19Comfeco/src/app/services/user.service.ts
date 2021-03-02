@@ -5,6 +5,7 @@ import { User } from '../class/User';
 import { IUsersCollection } from '../class/IUsersCollection';
 import { SessionEnum } from '../enum/SessionEnum';
 import { CollectionEnum } from '../enum/CollectionEnum';
+import { IGenderSubCollection } from '../class/IGenderSubCollection';
 
 @Injectable({
   providedIn: 'root'
@@ -61,6 +62,16 @@ export class UserService {
     user.email = userFire.email;
     user.emailVerified = userFire.emailVerified;
     user.displayName = userColl.displayName;
+    user.facebook = userColl.facebook;
+    user.gender = userColl.gender;
+    user.github = userColl.github;
+    user.knowledgeArea = userColl.knowledgeArea;
+    user.linkedin = userColl.linkedin;
+    user.twitter = userColl.twitter;
+    user.urlAvatar = userColl.urlAvatar;
+    user.country = userColl.country;
+    user.dateOfBirth = userColl.dateOfBirth;
+    user.biography = userColl.biography;
 
     this.user = user;
     localStorage.setItem(SessionEnum.SESSION_USER, JSON.stringify(user));
@@ -93,5 +104,50 @@ export class UserService {
     }else{
       return false;
     }
+ }
+
+ async updateUserProfile(user:User){
+  let us = this.auth.currentUser;
+
+  if(this.user.email.trim() != user.email.trim()){
+    await (await us).updateEmail(user.email);  
+    await this.sendEmailVerification();
+  }
+
+  if(user.password.trim() !== ""){
+    await (await this.auth.currentUser).updatePassword(user.password);
+  }
+
+  if(this.user.displayName.trim() != user.displayName.trim()){
+    await (await this.auth.currentUser).updateProfile({displayName:user.displayName});
+  }
+
+  let userColl:IUsersCollection = {
+    uid:user.uid,
+    displayName:user.displayName,
+    email:user.email,
+    biography:user.biography,
+    country: {
+      numericCode:user.country.numericCode,
+      name:user.country.name
+    },
+    dateOfBirth:user.dateOfBirth,
+    facebook:user.facebook,
+    github:user.github,
+    linkedin:user.linkedin,
+    twitter:user.twitter,
+    urlAvatar:user.urlAvatar,
+    knowledgeArea:user.knowledgeArea,
+    gender:{
+      code:user.gender.code,
+      description:user.gender.description
+    },
+  };
+
+  await this.firestore.collection(CollectionEnum.users).doc(this.user.uid).set(userColl);
+ }
+
+ getGenders():IGenderSubCollection[]{
+   return [{'code':'M', 'description':'Masculino'}, {'code':'F', 'description':'Femenino'}]
  }
 }

@@ -1,17 +1,24 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { ICommunitysCollection } from '../class/ICommunitysCollection';
 import { IContentCreatorsCollection } from '../class/IContentCreatorsCollection';
 import { IEventCollection } from '../class/IEventCollection';
+import { IKnowledgeAreaSubCollection } from '../class/IKnowledgeAreaSubCollection';
 import { ISponsorsCollection } from '../class/ISponsorsCollection';
 import { CollectionEnum } from '../enum/CollectionEnum';
+import { ICountrySubCollection } from '../class/ICountrySubCollection';
+import { Observable } from 'rxjs';
+import { IEventsCollection } from '../class/IEventsCollection';
+import { IBadgesCollection } from '../class/IBadgeCollection';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  constructor(private firestore:AngularFirestore) { }
+  constructor(private firestore:AngularFirestore, private http: HttpClient) { }
 
   async getCommunitys():Promise<ICommunitysCollection[]>{
     return await (await this.firestore.collection<ICommunitysCollection>(CollectionEnum.communitys).get().toPromise()).docs.map((res)=>{
@@ -64,5 +71,58 @@ export class DataService {
       return event;
     });
     return event[0];
+  }
+
+  async getKnowledgeAreas():Promise<IKnowledgeAreaSubCollection[]>{
+    return await (await this.firestore.collection<IKnowledgeAreaSubCollection>(CollectionEnum.knowledgeArea).get().toPromise()).docs.map((res)=>{
+      let data = res.data();
+      let knowledgeArea:IKnowledgeAreaSubCollection = {
+        id:data.id,
+        description:data.description
+      }
+      return knowledgeArea;
+    });
+  }
+
+  getCountrys():Observable<ICountrySubCollection[]>{
+    const urlContrys:string = "https://restcountries.eu/rest/v2/all";
+    return this.http.get<ICountrySubCollection[]>(urlContrys).pipe(
+      map(response =>{
+        let countrys:ICountrySubCollection[] = []
+        response.forEach((item)=>{
+          let country:ICountrySubCollection = {
+            numericCode:item.numericCode,
+            name:item.name
+          };
+
+          countrys.push(country);
+        })
+        return countrys;
+      })
+    );
+  }
+
+  async getEvents():Promise<IEventsCollection[]>{
+    return await (await this.firestore.collection<IEventsCollection>(CollectionEnum.events).get().toPromise()).docs.map((res)=>{
+      let data = res.data();
+      let event:IEventsCollection = {
+        id:data.id,
+        title: data.title,
+        urlImage: data.urlImage
+      }
+      return event;
+    });
+  }
+
+  async getBadges():Promise<IBadgesCollection[]>{
+    return await (await this.firestore.collection<IBadgesCollection>(CollectionEnum.badges).get().toPromise()).docs.map((res)=>{
+      let data = res.data();
+      let badge:IBadgesCollection = {
+        id:data.id,
+        title: data.title,
+        urlImage: data.urlImage
+      }
+      return badge;
+    });
   }
 }
