@@ -28,15 +28,9 @@ const ROUTES: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: 'home', component: HomeComponent },
-
       { path: 'sub-page', 
-       component: SubPagesComponent,
-       children: [
-         { path: '', component: SubHomeComponent },
-         { path: 'perfil', component: PerfilComponent},
-       ]
+        loadChildren: () => import('../app/pages/sub-pages/sub-pages.module').then(m => m.SubPagesModule)
       },
-      
       { path: 'comunidades', component: ComunidadComponent}
     ]
   },
