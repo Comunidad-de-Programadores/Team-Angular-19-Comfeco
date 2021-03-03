@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { ComponentsModule } from '../components/components.module';
 import { SharedModule } from '../shared/shared.module';
 import { PerfilComponent } from './perfil/perfil.component';
+import { ComunidadComponent } from './comunidad/comunidad.component';
 
 
 
@@ -14,7 +15,8 @@ import { PerfilComponent } from './perfil/perfil.component';
   declarations: [
     PagesComponent,
     HomeComponent,
-    PerfilComponent
+    PerfilComponent,
+    ComunidadComponent
   ],
   imports: [
     CommonModule,
