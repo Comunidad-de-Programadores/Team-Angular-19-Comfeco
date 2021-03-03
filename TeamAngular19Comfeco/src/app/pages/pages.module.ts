@@ -5,8 +5,8 @@ import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ComponentsModule } from '../components/components.module';
 import { SharedModule } from '../shared/shared.module';
-import { PerfilComponent } from './perfil/perfil.component';
 import { ComunidadComponent } from './comunidad/comunidad.component';
+import { SubPagesModule } from './sub-pages/sub-pages.module';
 
 
 
@@ -15,14 +15,14 @@ import { ComunidadComponent } from './comunidad/comunidad.component';
   declarations: [
     PagesComponent,
     HomeComponent,
-    PerfilComponent,
     ComunidadComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     ComponentsModule,
-    SharedModule
+    SharedModule,
+    SubPagesModule
   ]
 })
 export class PagesModule { }

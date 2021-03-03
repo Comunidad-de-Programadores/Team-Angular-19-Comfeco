@@ -7,9 +7,10 @@ import {RegisterComponent} from './auth/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
 import {HomeComponent} from './pages/home/home.component';
 import {PagesComponent} from './pages/pages.component';
-import { PerfilComponent } from './pages/perfil/perfil.component';
-import { EditarPerfilComponent } from './components/editar-perfil/editar-perfil.component';
+import { PerfilComponent } from './pages/sub-pages/perfil/perfil.component';
 import { ComunidadComponent } from './pages/comunidad/comunidad.component';
+import { SubPagesComponent } from './pages/sub-pages/sub-pages.component';
+import { SubHomeComponent } from './pages/sub-pages/sub-home/sub-home.component';
 
 const ROUTES: Routes = [
   { path: '',
@@ -27,8 +28,15 @@ const ROUTES: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: 'home', component: HomeComponent },
-      { path: 'perfil', component: PerfilComponent},
-      { path: 'editar-perfil', component: EditarPerfilComponent},
+
+      { path: 'sub-page', 
+       component: SubPagesComponent,
+       children: [
+         { path: '', component: SubHomeComponent },
+         { path: 'perfil', component: PerfilComponent},
+       ]
+      },
+      
       { path: 'comunidades', component: ComunidadComponent}
     ]
   },
