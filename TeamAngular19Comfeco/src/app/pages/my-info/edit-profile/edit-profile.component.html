@@ -1,0 +1,88 @@
+
+
+<div class="container my-5 pb-5">
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-10 col-lg-8 col-xl-8">
+      <div class="my-3">
+        <a class="h1" routerLink="/private/my-info"><i class="fas fa-long-arrow-alt-left"></i></a>
+      </div>
+      <form>
+
+
+        <div class="text-center">
+          <h3>Editar Perfil</h3>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="nick">Nick</label>
+            <input type="text" class="form-control" id="nick" aria-describedby="nick" placeholder="Nick">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="correo">Correo</label>
+            <input type="email" class="form-control" id="correo" placeholder="Correo">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="genero">Género</label>
+            <select class="form-control" id="genero">
+              <option selected>Seleccionar...</option>
+              <option value="M">Hombre</option>
+              <option value="F">Mujer</option>
+            </select>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="fecha-nacimiento">Fecha de nacimiento</label>
+            <input type="date" class="form-control" id="fecha-nacimiento">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="pais">País</label>
+            <input type="text" class="form-control" id="pais" placeholder="País">
+          </div>
+        </div>
+
+        <div class="social-container mt-3">
+          <div class="form-row">
+
+            <div class="input-group mb-3 col-md-6 col-sm-6" id="basic-addon3">
+              <span class="input-group-text"><i class="fab mr-1 fa-facebook" id="icon-facebook"></i> facebook.com/</span>
+              <input type="text" class="form-control">
+            </div>
+
+            <div class="input-group mb-3 col-md-6 col-sm-6">
+              <span class="input-group-text" id="basic-addon3"><i class="fab mr-1 fa-github" id="icon-github"></i> github.com/</span>
+              <input type="text" class="form-control">
+            </div>
+
+          </div>
+
+          <div class="form-row">
+
+            <div class="input-group mb-3 col-md-6 col-sm-6" id="basic-addon3">
+              <span class="input-group-text"><i class="fab mr-1 fa-linkedin-in" id="icon-linkedin"></i> linkedin.com/in/</span>
+              <input type="text" class="form-control">
+            </div>
+
+            <div class="input-group mb-3 col-md-6 col-sm-6">
+              <span class="input-group-text" id="basic-addon3"><i class="fab mr-1 fa-twitter" id="icon-twitter"></i> twitter.com/</span>
+              <input type="text" class="form-control" id="basic-url">
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="text-right">
+          <button type="submit" class="btn btn-secondary">Guardar</button>
+
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+
+
+
+</div>

@@ -6,7 +6,6 @@ import { HomeComponent } from './home/home.component';
 import { ComponentsModule } from '../components/components.module';
 import { SharedModule } from '../shared/shared.module';
 import { ComunidadComponent } from './comunidad/comunidad.component';
-import { SubPagesModule } from './sub-pages/sub-pages.module';
 
 
 
@@ -21,8 +20,7 @@ import { SubPagesModule } from './sub-pages/sub-pages.module';
     CommonModule,
     RouterModule,
     ComponentsModule,
-    SharedModule,
-    SubPagesModule
+    SharedModule
   ]
 })
 export class PagesModule { }
