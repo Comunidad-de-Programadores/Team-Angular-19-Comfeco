@@ -1,31 +1,68 @@
 <div class="container mt-5">
-    <form>
+    <form autocomplete="off" [formGroup]="formu" (ngSubmit)="actualizar()">
         <div class="form-row">
-            <div class="form-group col-md-6">
-                <label for="nick">Nick</label>
-                <input type="text" class="form-control" id="nick" aria-describedby="nick" placeholder="Nick">
+            <div class="form-group col-md-12 col-sm-12 titulo">
+                <h1>Editar Perfil</h1>
+                <div class="form-group foto-perfil">
+
+                    <div class="circulo">
+                        <i class="fas fa-user user"></i>
+                        <div class="row caja-camera">
+                            <i class="fas fa-camera camera"></i>
+                        </div>
+
+                    </div>
+
+                </div>
             </div>
-            <div class="form-group col-md-6">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="nick">Nick</label>
+                <input type="text" class="form-control" id="nick" aria-describedby="nick" placeholder="Nick de usuario" value="{{userService.user.displayName}}" formControlName="nick">
+            </div>
+            <div class=" form-group col-md-4">
                 <label for="correo">Correo</label>
-                <input type="email" class="form-control" id="correo" placeholder="Correo">
+                <input type="email" class="form-control" id="correo" placeholder="example@gmail.com" value="{{userService.user.email}}" formControlName="email">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="especialidad">Área de Conocimiento</label>
+                <select class="form-control" id="especialidad" formControlName="especialidad">
+                    <option selected>Seleccionar...</option>
+                    <option [value]="area.id" *ngFor="let area of knowledges">{{area.description}}</option>
+                </select>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="genero">Género</label>
-                <select class="form-control" id="genero">
+                <select class="form-control" id="genero" formControlName="genero">
                 <option selected>Seleccionar...</option>
-                <option value="M">Hombre</option>
-                <option value="F">Mujer</option>
+                <option [value]="sexo.code" *ngFor="let sexo of genders">{{sexo.description}}</option>
             </select>
             </div>
             <div class="form-group col-md-4">
                 <label for="fecha-nacimiento">Fecha de nacimiento</label>
-                <input type="date" class="form-control" id="fecha-nacimiento">
+                <input type="date" class="form-control" id="fecha-nacimiento" formControlName="fechanacimiento">
             </div>
             <div class="form-group col-md-4">
                 <label for="pais">País</label>
-                <input type="text" class="form-control" id="pais" placeholder="País">
+                <select class="form-control" id="pais" formControlName="pais">
+                    <option selected>Seleccione...</option>
+                    <option  [value]="item.numericCode" *ngFor="let item of countrys" >{{item.name}}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="Contraseña">Contraseña</label>
+                <input type="password" class="form-control" id="contra" aria-describedby="contraseña" placeholder="Contraseña" value="{{userService.user.password}}" formControlName="contra">
+            </div>
+            <div class="form-group col-md-6">
+                <label for="Repetir Contraseña">Repetir Contraseña</label>
+                <input type="password" class="form-control" id="repetir-contra" placeholder="Repetir Contraseña" value="{{userService.user.password}}">
             </div>
         </div>
 
@@ -33,12 +70,12 @@
 
             <div class="input-group mb-3 col-md-6 col-sm-6" id="basic-addon3">
                 <span class="input-group-text"><i class="fab fa-facebook" id="icon-facebook"></i>facebook.com/</span>
-                <input type="text" class="form-control">
+                <input type="text " class="form-control" formControlName="facebook">
             </div>
 
             <div class="input-group mb-3 col-md-6 col-sm-6">
                 <span class="input-group-text" id="basic-addon3"><i class="fab fa-github" id="icon-github"></i>github.com/</span>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" formControlName="github">
             </div>
 
         </div>
@@ -47,15 +84,24 @@
 
             <div class="input-group mb-3 col-md-6 col-sm-6" id="basic-addon3">
                 <span class="input-group-text"><i class="fab fa-linkedin-in" id="icon-linkedin"></i>linkedin.com/in/</span>
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" formControlName="linkedin">
             </div>
 
             <div class="input-group mb-3 col-md-6 col-sm-6">
                 <span class="input-group-text" id="basic-addon3"><i class="fab fa-twitter" id="icon-twitter"></i>twitter.com/</span>
-                <input type="text" class="form-control" id="basic-url">
+                <input type="text" class="form-control" id="basic-url" formControlName="twitter">
             </div>
 
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+
+        <div class="form-row">
+            <div class="col-md-12 col-sm-12 mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Biografía</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" formControlName="biografia"></textarea>
+            </div>
+        </div>
+        <div class="position-button">
+            <button type="submit" class="btn btn-primary guardar mb-4">Guardar Cambios</button>
+        </div>
     </form>
 </div>

@@ -1,0 +1,86 @@
+#icon-facebook {
+    color: #1093F4;
+    margin-right: 5px;
+}
+
+#icon-github {
+    color: #000;
+    margin-right: 5px;
+}
+
+#icon-linkedin {
+    color: #FFF;
+    font-size: 12px;
+    background-color: #0A66C2;
+    border-radius: 50%;
+    padding: 3px;
+    margin-right: 5px;
+}
+
+#icon-twitter {
+    color: #FFF;
+    font-size: 12px;
+    background-color: #00A2F3;
+    border-radius: 50%;
+    padding: 3px;
+    margin-right: 5px;
+}
+
+form .position-button {
+    text-align: right;
+}
+
+.titulo {
+    text-align: center;
+}
+
+.foto-perfil {
+    display: flex;
+    justify-content: center;
+}
+
+.circulo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid #000;
+}
+
+.user {
+    font-size: 90px;
+    margin-top: 10px;
+}
+
+.guardar {
+    background-color: #8A178C;
+    border-color: #8A178C;
+}
+
+.guardar:hover {
+    color: #000;
+}
+
+.caja-camera {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.camera {
+    font-size: 70px;
+    color: #FFF;
+    padding: 5px;
+    border-radius: 50%;
+    display: none;
+    position: relative;
+    top: -75px;
+}
+
+.circulo:hover {
+    background-color: RGBA(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.circulo:hover .camera {
+    display: block;
+}

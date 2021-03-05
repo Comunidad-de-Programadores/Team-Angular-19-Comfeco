@@ -144,7 +144,7 @@ export class UserService {
     },
   };
 
-  await this.firestore.collection(CollectionEnum.users).doc(this.user.uid).set(userColl);
+  await this.firestore.collection(CollectionEnum.users).doc(this.user.uid).update(userColl);
  }
 
  getGenders():IGenderSubCollection[]{

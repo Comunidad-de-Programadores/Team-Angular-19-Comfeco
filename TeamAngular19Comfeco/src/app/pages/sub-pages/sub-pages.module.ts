@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { SubPagesRoutesModule } from './sup-pages.routes';
 
@@ -19,7 +20,9 @@ import { SubHomeComponent } from './sub-home/sub-home.component';
   imports: [
     CommonModule,
     RouterModule,
-    SubPagesRoutesModule
+    SubPagesRoutesModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   exports: [
     SubPagesComponent,
