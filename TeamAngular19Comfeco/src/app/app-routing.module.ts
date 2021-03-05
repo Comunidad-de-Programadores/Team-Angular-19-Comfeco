@@ -1,16 +1,13 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RecoverPassComponent } from './auth/recover-pass/recover-pass.component';
-import {RegisterComponent} from './auth/register/register.component';
+import { RegisterComponent } from './auth/register/register.component';
 import { AuthGuard } from './guards/auth.guard';
-import {HomeComponent} from './pages/home/home.component';
-import {PagesComponent} from './pages/pages.component';
-import { PerfilComponent } from './pages/sub-pages/perfil/perfil.component';
+import { HomeComponent } from './pages/home/home.component';
+import { PagesComponent } from './pages/pages.component';
 import { ComunidadComponent } from './pages/comunidad/comunidad.component';
-import { SubPagesComponent } from './pages/sub-pages/sub-pages.component';
-import { SubHomeComponent } from './pages/sub-pages/sub-home/sub-home.component';
 
 const ROUTES: Routes = [
   { path: '',

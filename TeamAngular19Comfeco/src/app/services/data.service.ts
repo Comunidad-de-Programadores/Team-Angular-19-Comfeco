@@ -26,7 +26,8 @@ export class DataService {
       let comunidad:ICommunitysCollection = {
         id:data.id,
         name:data.name,
-        urlImage:data.urlImage
+        urlImage:data.urlImage,
+        url:data.url
       }
       return comunidad;
     });

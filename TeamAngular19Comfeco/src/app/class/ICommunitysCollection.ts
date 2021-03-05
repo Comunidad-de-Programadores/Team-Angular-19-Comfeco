@@ -6,4 +6,5 @@ export interface ICommunitysCollection{
     id:string;
     name:string;
     urlImage:string;
+    url:string;
 }
