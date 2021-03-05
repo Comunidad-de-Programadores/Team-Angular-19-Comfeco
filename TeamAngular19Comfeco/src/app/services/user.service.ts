@@ -148,6 +148,6 @@ export class UserService {
  }
 
  getGenders():IGenderSubCollection[]{
-   return [{'code':'M', 'description':'Masculino'}, {'code':'F', 'description':'Femenino'}]
+   return [{'code':'', 'description':'Seleccione...'}, {'code':'M', 'description':'Masculino'}, {'code':'F', 'description':'Femenino'}]
  }
 }

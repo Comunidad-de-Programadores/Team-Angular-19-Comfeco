@@ -74,7 +74,7 @@ export class DataService {
   }
 
   async getKnowledgeAreas():Promise<IKnowledgeAreaSubCollection[]>{
-    return await (await this.firestore.collection<IKnowledgeAreaSubCollection>(CollectionEnum.knowledgeArea).get().toPromise()).docs.map((res)=>{
+    let knowledges = await (await this.firestore.collection<IKnowledgeAreaSubCollection>(CollectionEnum.knowledgeArea).get().toPromise()).docs.map((res)=>{
       let data = res.data();
       let knowledgeArea:IKnowledgeAreaSubCollection = {
         id:data.id,
@@ -82,13 +82,26 @@ export class DataService {
       }
       return knowledgeArea;
     });
+
+    knowledges.unshift({
+      id:'',
+      description:'Seleccione...'
+    });
+
+    return knowledges;
   }
 
   getCountrys():Observable<ICountrySubCollection[]>{
     const urlContrys:string = "https://restcountries.eu/rest/v2/all";
-    return this.http.get<ICountrySubCollection[]>(urlContrys).pipe(
+    let countrys =  this.http.get<ICountrySubCollection[]>(urlContrys).pipe(
       map(response =>{
-        let countrys:ICountrySubCollection[] = []
+        let countrys:ICountrySubCollection[] = [];
+
+        countrys.push({
+          numericCode:'',
+          name:'Seleccione...'
+        })
+
         response.forEach((item)=>{
           let country:ICountrySubCollection = {
             numericCode:item.numericCode,
@@ -100,6 +113,8 @@ export class DataService {
         return countrys;
       })
     );
+
+    return countrys;
   }
 
   async getEvents():Promise<IEventsCollection[]>{
