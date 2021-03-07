@@ -1,0 +1,36 @@
+<div class="container-fluid mt-3">
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="card">
+
+
+        <div class="card-body">
+          <div class="text-right">
+
+            <a routerLink="/private/my-info/edit-profile">Editar Perfil</a>
+          </div>
+          <div class="text-center">
+            <img style="max-width: 200px" class="circle " src="https://via.placeholder.com/500" alt="">
+          </div>
+          <h5 class="card-title text-center font-weight-bold mt-3">
+            {{userService.user?.displayName}}
+          </h5>
+          <h6 class="text-center text-muted">
+            Front End / UX
+          </h6>
+          <p class="card-text ">
+            {{userService.user?.biography}}
+          </p>
+          <hr>
+          <div class="d-flex justify-content-between">
+            <!--TODO ¿¿??-->
+            <img style="max-width: 30px" class="circle " src="https://via.placeholder.com/500" alt="">
+            <img style="max-width: 30px" class="circle " src="https://via.placeholder.com/500" alt="">
+            <img style="max-width: 30px" class="circle " src="https://via.placeholder.com/500" alt="">
+            <img style="max-width: 30px" class="circle " src="https://via.placeholder.com/500" alt="">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

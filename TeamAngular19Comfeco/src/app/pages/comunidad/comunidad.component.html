@@ -1,1 +1,26 @@
-<p>comunidad works!</p>
+<div class="container note-has-grid mt-3">
+    <div class="tab-content">
+        <div class="note-has-grid row">
+                <div class="col-md-4 single-note-item all-category" *ngFor="let item of communitysCollection">
+                    <div class="card card-body mt-2">
+                        <span class="side-stick"></span>
+                        <h5 class="note-title text-truncate mb-0" 
+                            data-noteHeading="Book a Ticket for Movie">
+                                {{ item.name }}
+                            </h5>
+                        <img style="width: 35px;" [src]="item.urlImage" alt="">
+                        <div class="note-content">
+                                    <p class="note-inner-content text-muted" data-noteContent="Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.">Blandit tempus porttitor aasfs. Integer posuere erat a ante venenatis.</p>
+                        </div>
+                        <div class="d-flex align-items-center">
+                                <!-- <span class="mr-1"><i class="far fa-star favourite-note"></i></span>
+                                <span class="mr-1"><i class="far fa-trash-alt remove-note"></i></span> -->
+                                <div class="ml-auto">
+                                    <a [href]="item.url" class="btn btn-primary" target="_blank">Unirse</a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+          </div>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 <div class="container mt-5">
+    <a class="h1" routerLink="/private/my-info"><i class="fas fa-long-arrow-alt-left"></i></a>
     <form autocomplete="off" [formGroup]="formu" (ngSubmit)="actualizar()">
         <div class="form-row">
             <div class="form-group col-md-12 col-sm-12 titulo">
@@ -29,16 +30,17 @@
             <div class="form-group col-md-4">
                 <label for="especialidad">Área de Conocimiento</label>
                 <select class="form-control" id="especialidad" formControlName="especialidad">
-                    <option [value]="area.id" *ngFor="let area of knowledges">{{area.description}}</option>
-                </select>
+                  <!-- <option [value]="userService.user.knowledgeArea[0].id" selected>{{userService.user.knowledgeArea[0].description}}</option> -->
+                  <option [value]="area.id" *ngFor="let area of knowledges">{{area.description}}</option>
+              </select>
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
                 <label for="genero">Género</label>
                 <select class="form-control" id="genero" formControlName="genero">
-                <option [value]="sexo.code" *ngFor="let sexo of genders">{{sexo.description}}</option>
-            </select>
+              <option [value]="sexo.code" *ngFor="let sexo of genders">{{sexo.description}}</option>
+          </select>
             </div>
             <div class="form-group col-md-4">
                 <label for="fecha-nacimiento">Fecha de nacimiento</label>
@@ -47,8 +49,8 @@
             <div class="form-group col-md-4">
                 <label for="pais">País</label>
                 <select class="form-control" id="pais" formControlName="pais">
-                    <option  [value]="item.numericCode" *ngFor="let item of countrys" >{{item.name}}</option>
-                </select>
+                  <option  [value]="item.numericCode" *ngFor="let item of countrys" >{{item.name}}</option>
+              </select>
             </div>
         </div>
 
@@ -59,14 +61,17 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="Repetir Contraseña">Repetir Contraseña</label>
-                <input type="password" class="form-control" id="repetir-contra" placeholder="Repetir Contraseña" value="{{userService.user.password}}">
+                <input type="password" class="form-control" id="contra2" placeholder="Repetir Contraseña" value="{{userService.user.password}}" formControlName="contra2" [class.is-invalid]="contrasenaValidos">
+                <div class="invalid-feedback">
+                    La contraseña no es igual.
+                </div>
             </div>
         </div>
 
         <div class="form-row">
 
-            <div class="input-group mb-3 col-md-6 col-sm-6" id="basic-addon3">
-                <span class="input-group-text"><i class="fab fa-facebook" id="icon-facebook"></i>facebook.com/</span>
+            <div class="input-group mb-3 col-md-6 col-sm-6">
+                <span class="input-group-text" id="basic-addon3"><i class="fab fa-facebook" id="icon-facebook"></i>facebook.com/</span>
                 <input type="text " class="form-control" formControlName="facebook">
             </div>
 
@@ -80,7 +85,7 @@
         <div class="form-row">
 
             <div class="input-group mb-3 col-md-6 col-sm-6" id="basic-addon3">
-                <span class="input-group-text"><i class="fab fa-linkedin-in" id="icon-linkedin"></i>linkedin.com/in/</span>
+                <span class="input-group-text" id="basic-addon3"><i class="fab fa-linkedin-in" id="icon-linkedin"></i>linkedin.com/in/</span>
                 <input type="text" class="form-control" formControlName="linkedin">
             </div>
 

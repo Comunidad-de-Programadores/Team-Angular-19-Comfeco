@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from "../../../services/user.service";
 import { DataService } from '../../../services/data.service';
 import { ICountrySubCollection } from 'src/app/class/ICountrySubCollection';
 import { IGenderSubCollection } from 'src/app/class/IGenderSubCollection';
@@ -7,18 +7,18 @@ import { IKnowledgeAreaSubCollection } from 'src/app/class/IKnowledgeAreaSubColl
 import { User } from 'src/app/class/User';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 
-
 @Component({
-  selector: 'app-perfil',
-  templateUrl: './perfil.component.html',
-  styleUrls: ['./perfil.component.css']
+  selector: 'app-edit-profile',
+  templateUrl: './edit-profile.component.html',
+  styleUrls: ['./edit-profile.component.css']
 })
-export class PerfilComponent implements OnInit {
+export class EditProfileComponent implements OnInit {
 
   countrys: ICountrySubCollection[] = [];
   genders: IGenderSubCollection[] = [];
   knowledges: IKnowledgeAreaSubCollection[] = [];
   formu:FormGroup;
+  public formSubmitted = false;
 
   constructor(public userService: UserService, public dataService: DataService, private fb:FormBuilder) { 
     this.crearFormulario();
@@ -28,6 +28,7 @@ export class PerfilComponent implements OnInit {
     this.getCountrys();
     this.getGenders();
     this.getKnowledgeAreas();
+    console.log('Area: ',this.userService.user.knowledgeArea[0].id,this.userService.user.knowledgeArea[0].description);
   }
 
   crearFormulario(){
@@ -45,7 +46,10 @@ export class PerfilComponent implements OnInit {
       twitter:[''],
       biografia:['',Validators.maxLength(140)]
       
-    })
+    },
+    {
+      Validators: this.passwordIguales("contra","contra2")
+    });
   }
 
   async getCountrys(){
@@ -88,6 +92,32 @@ export class PerfilComponent implements OnInit {
         this.userService.updateUserProfile(usuario)  
       } catch (error) {
         console.error(error);
+    }
+  }
+
+
+  contrasenaValidos() {
+    const pass1 = this.formu.get('contra').value;
+    const pass2 = this.formu.get('contra2').value;
+
+    if ((pass1 !== pass2) && this.formSubmitted && this.formu.get('contra').touched) {
+      return true;
+    } else {
+      return false;
+    }
+
+  }
+
+  passwordIguales(pass1: string, pass2: string) {
+    return ( formGroup: FormGroup) => {
+        const pass1Control = formGroup.get(pass1);
+        const pass2Control = formGroup.get(pass2);
+
+        if (pass1Control.value === pass1Control.value) {
+          pass2Control.setErrors(null);
+        } else {
+          pass2Control.setErrors({ noEsIgual: true });
+        }
     }
   }
 
