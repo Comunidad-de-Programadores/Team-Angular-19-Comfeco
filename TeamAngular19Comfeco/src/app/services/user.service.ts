@@ -68,7 +68,7 @@ export class UserService {
     user.knowledgeArea = userColl.knowledgeArea;
     user.linkedin = userColl.linkedin;
     user.twitter = userColl.twitter;
-    user.urlAvatar = userColl.urlAvatar;
+    user.urlAvatar = this.getRandomAvatar();
     user.country = userColl.country;
     user.dateOfBirth = userColl.dateOfBirth;
     user.biography = userColl.biography;
@@ -150,5 +150,11 @@ export class UserService {
 
  getGenders():IGenderSubCollection[]{
    return [{'code':'', 'description':'Seleccione...'}, {'code':'M', 'description':'Masculino'}, {'code':'F', 'description':'Femenino'}]
+ }
+
+ private getRandomAvatar(){
+   let random = Math.floor(Math.random() * (51 - 1)) + 1;
+   let urlRandomAvatar = `https://picsum.photos/id/${random}/500/500`;
+   return urlRandomAvatar;
  }
 }

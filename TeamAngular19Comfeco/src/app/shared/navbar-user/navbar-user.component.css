@@ -7,7 +7,7 @@ i {
     width: 200px;
 }
 
-.foto-perfil {
+.foto-perfil img {
     margin-left: 10px;
     margin-right: 5px;
     width: 40px;
@@ -15,7 +15,6 @@ i {
     border-radius: 50%;
     background-color: #FFF;
     text-align: center;
-    padding-top: 5px;
 }
 
 .foto-perfil i {

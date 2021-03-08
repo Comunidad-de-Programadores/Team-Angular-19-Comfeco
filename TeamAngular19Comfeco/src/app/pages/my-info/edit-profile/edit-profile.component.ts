@@ -6,6 +6,7 @@ import { IGenderSubCollection } from 'src/app/class/IGenderSubCollection';
 import { IKnowledgeAreaSubCollection } from 'src/app/class/IKnowledgeAreaSubCollection';
 import { User } from 'src/app/class/User';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-profile',
@@ -20,7 +21,7 @@ export class EditProfileComponent implements OnInit {
   formu:FormGroup;
   public formSubmitted = false;
 
-  constructor(public userService: UserService, public dataService: DataService, private fb:FormBuilder) { 
+  constructor(public userService: UserService, public dataService: DataService, private fb:FormBuilder, private toastr: ToastrService) { 
     this.crearFormulario();
   }
 
@@ -39,7 +40,8 @@ export class EditProfileComponent implements OnInit {
       genero:[''],
       fechanacimiento:[''],
       pais:[''],
-      contra:[this.userService.user.password],
+      contra:['',Validators.minLength(6)],
+      contra2:['',Validators.minLength(6)],
       facebook:[''],
       github:[''],
       linkedin:[''],
@@ -72,6 +74,7 @@ export class EditProfileComponent implements OnInit {
 
   actualizar(){
       try {
+        this.formSubmitted =true;
         let usuario:User = new User();
         console.log(this.formu.controls.pais.value);
         usuario.uid = this.userService.user.uid;
@@ -89,9 +92,10 @@ export class EditProfileComponent implements OnInit {
         usuario.urlAvatar = "";
         usuario.password = this.formu.controls.contra.value;
         console.log('usuario:',usuario);
-        this.userService.updateUserProfile(usuario)  
+        this.userService.updateUserProfile(usuario);
+        this.toastr.success('Se actualizo exitosamente');
       } catch (error) {
-        console.error(error);
+        this.toastr.success('Error al actualizar');
     }
   }
 
@@ -100,7 +104,7 @@ export class EditProfileComponent implements OnInit {
     const pass1 = this.formu.get('contra').value;
     const pass2 = this.formu.get('contra2').value;
 
-    if ((pass1 !== pass2) && this.formSubmitted && this.formu.get('contra').touched) {
+    if ((pass1 !== pass2) && this.formSubmitted) {
       return true;
     } else {
       return false;
@@ -119,6 +123,14 @@ export class EditProfileComponent implements OnInit {
           pass2Control.setErrors({ noEsIgual: true });
         }
     }
+  }
+
+  MinContrasena(){
+    return this.formu.get('contra').invalid && this.formSubmitted;
+  }
+
+  MaxBiografia(){
+    return this.formu.get('biografia').invalid && this.formSubmitted;
   }
 
 }

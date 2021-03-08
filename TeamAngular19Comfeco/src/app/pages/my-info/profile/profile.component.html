@@ -10,7 +10,7 @@
             <a routerLink="/private/my-info/edit-profile">Editar Perfil</a>
           </div>
           <div class="text-center">
-            <img style="max-width: 200px" class="circle " src="https://via.placeholder.com/500" alt="">
+            <img style="max-width: 200px" class="circle " [src]="userService.user.urlAvatar" alt="">
           </div>
           <h5 class="card-title text-center font-weight-bold mt-3">
             {{userService.user?.displayName}}
