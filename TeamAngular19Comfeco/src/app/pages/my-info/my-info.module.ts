@@ -6,6 +6,7 @@ import {EditProfileComponent} from './edit-profile/edit-profile.component';
 import {ProfileComponent} from './profile/profile.component';
 import {RouterModule} from '@angular/router';
 import {MyInfoRoutingModule} from './my-info-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -16,7 +17,9 @@ import {MyInfoRoutingModule} from './my-info-routing.module';
   imports: [
     CommonModule,
     RouterModule,
-    MyInfoRoutingModule
+    MyInfoRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
 
   ]
 })
