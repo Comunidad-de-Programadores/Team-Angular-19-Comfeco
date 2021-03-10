@@ -10,5 +10,7 @@ export enum CollectionEnum{
     event = "event",
     knowledgeArea = "knowledgeArea",
     events = "events",
-    badges = "badges"
+    badges = "badges",
+    badgesByUser = "badgesByUser",
+    groups = "groups"
 }

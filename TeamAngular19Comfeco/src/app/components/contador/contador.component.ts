@@ -36,6 +36,7 @@ export class ContadorComponent implements OnInit {
 
   getSeconds$() {
     return interval(1000).subscribe(() => {
+      try {
         let fechaActual = new Date().getTime();
         let fechaEvento = new Date(this.event.year, this.event.month, this.event.day, this.event.hour).getTime();
         let diferencia:number = fechaEvento - fechaActual;
@@ -55,6 +56,9 @@ export class ContadorComponent implements OnInit {
         this.hour = horas;
         this.minutes = minutos;
         this.seconds = segundos;
+      } catch (error) {
+        
+      }
     });
   }
 

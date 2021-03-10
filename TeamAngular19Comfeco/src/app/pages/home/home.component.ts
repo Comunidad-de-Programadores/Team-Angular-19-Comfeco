@@ -10,6 +10,7 @@ import { IGenderSubCollection } from 'src/app/class/IGenderSubCollection';
 import { IKnowledgeAreaSubCollection } from 'src/app/class/IKnowledgeAreaSubCollection';
 import {ISponsorsCollection} from 'src/app/class/ISponsorsCollection';
 import { User } from 'src/app/class/User';
+import { TypeBadges } from 'src/app/enum/TypesEnum';
 import {DataService} from 'src/app/services/data.service';
 import {UserService} from 'src/app/services/user.service';
 
@@ -41,15 +42,22 @@ export class HomeComponent implements OnInit {
     this.getSponsors();
 
     //Prueba de carga de datos
-    this.getKnowledgeAreas();
+    /* this.getKnowledgeAreas();
     this.getGenders();
     this.getCountrys();
     this.getEvents();
-    this.getBadges();
-    setTimeout(() => {
-      this.updateProfile();
-    }, 5000);
-  }
+    this.getBadges(); */
+    this.setBadgeByUser(this.userService.user.uid, TypeBadges.activa);
+    this.getBadgesByUser(this.userService.user.uid);
+    this.getGroupOfUser(this.userService.user.uid);
+    this.getLanguajes();
+    this.getGroups('');
+    this.getGroups('JS');
+    this.setUserToGroup('vdjrSa5USOQQEdpgF9TAlWDvOws2', 'kpNeCQfeY8j5kIyl5mJh')
+    this.quitUserOfGroup('vdjrSa5USOQQEdpgF9TAlWDvOws2', 'kpNeCQfeY8j5kIyl5mJh')
+    this.setUserToEvent('3BkAbg0taoeZ6xsBbZdn7mUZAFg1', 'FfSeoUvtaTbmrQG6XYij');
+    this.getEventsOfUser('3BkAbg0taoeZ6xsBbZdn7mUZAFg1');
+  } 
 
   cerrarSession(): void {
     try {
@@ -93,56 +101,81 @@ export class HomeComponent implements OnInit {
   }
 
   //metodos de prueba de datos
-  async getKnowledgeAreas(): Promise<void> {
+  setBadgeByUser(uid:string, typeBadge:string){
     try {
-      this.knowledges = await this.dataService.getKnowledgeAreas();
-      console.log("Conocimientos", this.knowledges)
+      this.dataService.setBadgeToUserByType(uid, typeBadge)  
     } catch (error) {
-      console.log(error.message);
+      console.error("Set insignias", error)
     }
   }
 
-  getGenders(){
-    this.genders = this.userService.getGenders();
-    console.log("Generos", this.genders)
-  }
-
-  async getCountrys(){
-    this.countrys = await this.dataService.getCountrys().toPromise();
-    console.log("Paises", this.countrys)
-  }
-
-  async getEvents(){
-    this.events = await this.dataService.getEvents();
-    console.log("Eventos", this.events)
-  }
-
-  async getBadges(){
-    this.badges = await this.dataService.getBadges();
-    console.log("Badges", this.badges)
-  }
-
-  updateProfile(){
+  async getBadgesByUser(uid:string){
     try {
-      let usuario:User = new User();
-      usuario.uid = this.userService.user.uid;
-      usuario.biography = "una biografia mas";
-      usuario.country = this.countrys[10];
-      usuario.dateOfBirth = "1992/07/11";
-      usuario.displayName = "ErvinSV92";
-      usuario.email = "ervinsv92@gmail.com";
-      usuario.facebook = "facebook1";
-      usuario.gender = this.genders[0];
-      usuario.github = "github1";
-      usuario.knowledgeArea.push(this.knowledges[0])
-      usuario.knowledgeArea.push(this.knowledges[1])
-      usuario.linkedin = "linkedin1";
-      usuario.twitter = "twitter1";
-      usuario.urlAvatar = "";
-      usuario.password = "1234567";
-      this.userService.updateUserProfile(usuario)  
+      let insigniasUsuario = await this.dataService.getBadgesByUser(uid)  
+      console.log("Insignias por usuario", insigniasUsuario)
     } catch (error) {
-      console.error(error);
+      console.error("Set insignias", error)
+    }
+  }
+
+  async getGroupOfUser(uid:string){
+    try {
+      let group = await this.dataService.getGroupOfUser(uid);
+      console.log("Grupo del usuario", group);
+
+      let usuarios = await this.dataService.getUsersOfGroup(group.idUsers);
+      console.log("Usuarios del grupo", usuarios);
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  getLanguajes(){
+    let languajes = this.dataService.getLanguajes();
+    console.log("languajes", languajes)
+  }
+
+  async getGroups(languaje:string){
+    try {
+      let groups = await this.dataService.getGroups(languaje);
+      console.log("Grupos: " + languaje, groups);
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async setUserToGroup(uid:string, idGroup:string){
+    try {
+      console.log("agregar")
+      await this.dataService.setUserToGroup(uid, idGroup);
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async quitUserOfGroup(uid:string, idGroup:string){
+    try {
+      console.log("quitar")
+      await this.dataService.quitUserOfGroup(uid, idGroup);
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  async setUserToEvent(uid:string, idEvent:string){
+    try {
+      await this.dataService.setUserToEvent(uid, idEvent);
+    } catch (error) {
+      console.error(error.message)
+    }
+  }
+
+  async getEventsOfUser(uid:string){
+    try {
+      let eventsOfUser = await this.dataService.getEventsOfUser(uid);
+      console.log("Events of user", eventsOfUser);
+    } catch (error) {
+      console.error(error.message)
     }
   }
 }
