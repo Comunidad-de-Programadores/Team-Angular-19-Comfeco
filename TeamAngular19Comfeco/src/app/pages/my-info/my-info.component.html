@@ -1,52 +1,64 @@
 <div class="tab-container " style="background-color: #6c757d61">
-  <ul class="nav nav-pills mb-3 py-3 justify-content-center" id="pills-tab" role="tablist">
-    <li class="nav-item" role="presentation">
-      <a class="nav-link active px-5 py-2" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
-         aria-controls="pills-profile" aria-selected="true">
-        <i class="fas fa-user mr-2"></i> Perfil
-      </a>
-    </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link px-5 py-2" id="pills-badges-tab" data-toggle="pill" href="#pills-badges" role="tab"
-         aria-controls="pills-badges" aria-selected="false">
-        <i class="fas fa-certificate mr-2"></i> Insignias
-      </a>
-    </li>
+    <ul class="nav nav-pills mb-3 py-3 justify-content-center" id="pills-tab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <a class="nav-link active px-5 py-2" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">
+                <i class="fas fa-user mr-2"></i> Perfil
+            </a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link px-5 py-2" id="pills-badges-tab" data-toggle="pill" href="#pills-badges" role="tab" aria-controls="pills-badges" aria-selected="false">
+                <i class="fas fa-certificate mr-2"></i> Insignias
+            </a>
+        </li>
 
-    <li class="nav-item" role="presentation">
-      <a class="nav-link px-5 py-2" id="pills-groups-tab" data-toggle="pill" href="#pills-groups" role="tab"
-         aria-controls="pills-groups" aria-selected="false">
-        <i class="fas fa-user-friends mr-2"></i> Grupos
-      </a>
-    </li>
-    <li class="nav-item" role="presentation">
-      <a class="nav-link px-5 py-2" id="pills-events-tab" data-toggle="pill" href="#pills-events" role="tab"
-         aria-controls="pills-events" aria-selected="false">
-        <i class="fas fa-calendar-alt mr-2"></i> Eventos</a>
-    </li>
-  </ul>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link px-5 py-2" id="pills-groups-tab" data-toggle="pill" href="#pills-groups" role="tab" aria-controls="pills-groups" aria-selected="false">
+                <i class="fas fa-user-friends mr-2"></i> Grupos
+            </a>
+        </li>
+        <li class="nav-item" role="presentation">
+            <a class="nav-link px-5 py-2" id="pills-events-tab" data-toggle="pill" href="#pills-events" role="tab" aria-controls="pills-events" aria-selected="false">
+                <i class="fas fa-calendar-alt mr-2"></i> Eventos</a>
+        </li>
+    </ul>
 </div>
 
 
 <div class="tab-content" id="pills-tabContent">
-  <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-    <!--router Editar Perfil-->
-    <router-outlet></router-outlet>
-  </div>
-  <div class="tab-pane fade" id="pills-badges" role="tabpanel" aria-labelledby="pills-badges-tab">
-    <!--TODO BADGES-->
-    <h5 class="text-center">Tab Badges Works</h5>
-  </div>
-  <div class="tab-pane fade" id="pills-groups" role="tabpanel" aria-labelledby="pills-groups-tab">
-    <!--TODO GROUPS-->
-    <h5 class="text-center">Tab groups Works</h5>
-  </div>
-  <div class="tab-pane fade" id="pills-events" role="tabpanel" aria-labelledby="pills-events">
-    <!--TODO EVENTES-->
-    <h5 class="text-center">Tab events Works</h5>
-  </div>
+    <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <!--router Editar Perfil-->
+        <router-outlet></router-outlet>
+    </div>
+    <div class="tab-pane fade" id="pills-badges" role="tabpanel" aria-labelledby="pills-badges-tab">
+        <!--TODO BADGES-->
+        <h5 class="text-center">Tab Badges Works</h5>
+    </div>
+    <div class="tab-pane fade" id="pills-groups" role="tabpanel" aria-labelledby="pills-groups-tab">
+        <!--TODO GROUPS-->
+        <h5 class="text-center">Tab groups Works</h5>
+    </div>
+    <div class="tab-pane fade" id="pills-events" role="tabpanel" aria-labelledby="pills-events">
+        <!--TODO EVENTES-->
+        <h2 class="text-center mb-5">
+            <strong>Eventos Activos</strong>
+        </h2>
+        <div class="row row-cols-1 row-cols-md-3 g-4 m-4">
+            <div class="col" *ngFor="let item of events">
+                <div class="card h-100">
+                    <img [src]="item.urlImage" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-tittle text-center">
+                            <strong>{{item.title}}</strong>
+                        </h5>
+                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae eius magni eaque quia fugit voluptatem ratione, alias ipsum aliquid esse odit repellat dicta nobis doloremque, quibusdam consequatur facilis ducimus doloribus.</p>
+                        <div class="botones">
+                            <a href="#" class="btn btn-outline boton1">Más información</a>
+                            <button class="btn boton" (click)="setUserToEvent(userService.user.uid, item.id)">Participar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
-
-
-

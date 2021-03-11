@@ -57,6 +57,7 @@ export class HomeComponent implements OnInit {
     this.quitUserOfGroup('vdjrSa5USOQQEdpgF9TAlWDvOws2', 'kpNeCQfeY8j5kIyl5mJh')
     this.setUserToEvent('3BkAbg0taoeZ6xsBbZdn7mUZAFg1', 'FfSeoUvtaTbmrQG6XYij');
     this.getEventsOfUser('3BkAbg0taoeZ6xsBbZdn7mUZAFg1');
+    this.getEvents();
   } 
 
   cerrarSession(): void {
@@ -176,6 +177,15 @@ export class HomeComponent implements OnInit {
       console.log("Events of user", eventsOfUser);
     } catch (error) {
       console.error(error.message)
+    }
+  }
+
+  async getEvents(){
+    try{
+      let events = await this.dataService.getEvents();
+      console.log("Eventos: ",events);
+    }catch(error){
+      console.log(error);
     }
   }
 }
