@@ -127,6 +127,7 @@ export class DataService {
       let event:IEventsCollection = {
         id:data.id,
         title: data.title,
+        description:data.description,
         urlImage: data.urlImage
       }
       return event;
@@ -139,6 +140,7 @@ export class DataService {
       let event:IEventsCollection = {
         id:data.id,
         title: data.title,
+        description:data.description,
         urlImage: data.urlImage
       }
       return event;
@@ -293,7 +295,10 @@ export class DataService {
     })[0];
 
     if(group.idUsers == undefined || group.idUsers.findIndex(x=>x == uid) < 0){
-      group.idUsers = [];
+      if(group.idUsers == undefined){
+        group.idUsers = [];
+      }
+      
       group.idUsers.push(uid);
       this.firestore.collection<IGroupCollection>(CollectionEnum.groups).doc(idGroup).update({
         idUsers:group.idUsers
@@ -361,17 +366,23 @@ export class DataService {
   async setUserToEvent(uid:string, idEvent:string){
     let event = await (await this.firestore.collection<IEventsCollection>(CollectionEnum.events, ref => ref.where('id','==',idEvent).limit(1)).get().toPromise()).docs.map((res)=>{
       let data = res.data();
-      let group:IEventsCollection = {
+      let ev:IEventsCollection = {
         id:data.id,
         title:data.title,
-        urlImage:data.urlImage
+        urlImage:data.urlImage,
+        description:data.description,
+        idUsers:data.idUsers
       }
-      return group;
+      return ev;
     })[0];
 
     if(event.idUsers == undefined || event.idUsers.findIndex(x=>x == uid) < 0){
-      event.idUsers = [] 
+      if(event.idUsers == undefined){
+        event.idUsers = [] 
+      }
+      
       event.idUsers.push(uid);
+
       this.firestore.collection<IEventsCollection>(CollectionEnum.events).doc(idEvent).update({
         idUsers:event.idUsers
       });

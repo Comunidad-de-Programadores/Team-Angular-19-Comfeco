@@ -47,7 +47,7 @@ export class HomeComponent implements OnInit {
     this.getCountrys();
     this.getEvents();
     this.getBadges(); */
-    this.setBadgeByUser(this.userService.user.uid, TypeBadges.activa);
+    /* this.setBadgeByUser(this.userService.user.uid, TypeBadges.activa);
     this.getBadgesByUser(this.userService.user.uid);
     this.getGroupOfUser(this.userService.user.uid);
     this.getLanguajes();
@@ -57,7 +57,8 @@ export class HomeComponent implements OnInit {
     this.quitUserOfGroup('vdjrSa5USOQQEdpgF9TAlWDvOws2', 'kpNeCQfeY8j5kIyl5mJh')
     this.setUserToEvent('3BkAbg0taoeZ6xsBbZdn7mUZAFg1', 'FfSeoUvtaTbmrQG6XYij');
     this.getEventsOfUser('3BkAbg0taoeZ6xsBbZdn7mUZAFg1');
-    this.getEvents();
+    this.getEvents(); */
+    this.getEventsOfUser(this.userService.user.uid);
   } 
 
   cerrarSession(): void {
