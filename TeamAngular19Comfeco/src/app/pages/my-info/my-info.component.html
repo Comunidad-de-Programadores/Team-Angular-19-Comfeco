@@ -31,7 +31,43 @@
     </div>
     <div class="tab-pane fade" id="pills-badges" role="tabpanel" aria-labelledby="pills-badges-tab">
         <!--TODO BADGES-->
-        <h5 class="text-center">Tab Badges Works</h5>
+        <div class="container-fluid mt-3" >
+            <div class="row">
+             <div class="col-lg-12 text-center">
+                 <p>Insignias</p>
+             </div>
+              <div class="col mt-3" *ngFor="let item of insignias">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="text-center">
+                      <img style="max-width: 120px" class="circle " [src]="userService.user.urlAvatar" alt="">
+                    </div>
+                    <h5 class="card-title text-center font-weight-bold mt-3">
+                      {{userService.user?.displayName}}
+                    </h5>
+                    <h6 class="text-center text-muted">
+                      Front End / UX
+                    </h6>
+                    <p class="card-text ">
+                      {{userService.user?.biography}}
+                    </p>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                       <h6>XDXD</h6>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between">
+                        <h6>XDXD</h6>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <h6>Hello</h6>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+          
     </div>
     <div class="tab-pane fade" id="pills-groups" role="tabpanel" aria-labelledby="pills-groups-tab">
         <!--TODO GROUPS-->

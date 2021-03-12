@@ -10,7 +10,7 @@ const ROUTES_LAZY: Routes = [
     component: MyInfoComponent,
     children: [
       {path: '', component: ProfileComponent},
-      {path: 'edit-profile', component: EditProfileComponent}
+      { path: 'edit-profile', component: EditProfileComponent }
     ]
   }
 ];

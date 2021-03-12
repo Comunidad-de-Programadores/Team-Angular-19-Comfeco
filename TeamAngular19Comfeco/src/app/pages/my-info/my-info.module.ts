@@ -13,7 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     MyInfoComponent,
     EditProfileComponent,
-    ProfileComponent],
+    ProfileComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,

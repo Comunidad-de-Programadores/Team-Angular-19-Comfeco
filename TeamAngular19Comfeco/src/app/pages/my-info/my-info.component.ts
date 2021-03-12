@@ -10,6 +10,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class MyInfoComponent implements OnInit {
 
+  insignias = [{},{},{},{}]
   events:IEventsCollection[] = [];
   
   constructor(private dataService: DataService, public userService: UserService) { }
