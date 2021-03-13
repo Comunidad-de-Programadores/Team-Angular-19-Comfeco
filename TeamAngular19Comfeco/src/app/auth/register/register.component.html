@@ -1,64 +1,63 @@
 <ul class="nav nav-pills nav-fill mb-5 justify-content-center" id="pills-tab" role="tablist">
-  <li class="nav-item" role="presentation">
-    <a class="nav-link" id="pills-login-tab" data-toggle="pill" routerLink="/login" routerLinkActive="active"
-       role="tab" aria-controls="pills-login" aria-selected="true">Inicia Sesión</a>
-  </li>
-  <li class="nav-item" role="presentation">
-    <a class="nav-link" id="pills-register" data-toggle="pill" routerLink="/register" routerLinkActive="active"
-    role="tab" aria-controls="pills-profile" aria-selected="false">Regístrate</a>
-  </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" id="pills-login-tab" data-toggle="pill" routerLink="/login" routerLinkActive="active" role="tab" aria-controls="pills-login" aria-selected="true">Inicia Sesión</a>
+    </li>
+    <li class="nav-item" role="presentation">
+        <a class="nav-link" id="pills-register" data-toggle="pill" routerLink="/register" routerLinkActive="active" role="tab" aria-controls="pills-profile" aria-selected="false">Regístrate</a>
+    </li>
 </ul>
 
 <h3>Registro</h3>
-<form action="" [formGroup]="registerForm" (ngSubmit)="registerUsuario()" >
-  <div class="form-group">
-    <label for="nick">Nick</label>
-    <input type="text" class="form-control" id="nick" aria-describedby="Nick" formControlName="displayName">
-    <div class="text-danger" *ngIf="campoNoValido('displayName')">
-      El Nick es Obligatorio
+<form action="" [formGroup]="registerForm" (ngSubmit)="registerUsuario()">
+    <div class="form-group">
+        <label for="nick">Nick</label>
+        <input type="text" class="form-control" id="nick" aria-describedby="Nick" formControlName="displayName">
+        <div class="text-danger" *ngIf="campoNoValido('displayName')">
+            El Nick es Obligatorio
+        </div>
     </div>
-  </div>
-  
-  <div class="form-group">
-    <label for="emailRegister">Correo</label>
-    <input type="email" class="form-control" id="emailRegister" aria-describedby="emailHelp" formControlName="email">
-    <div class="text-danger" *ngIf="campoNoValido('email')">
-      El formato del email es incorrecto
+
+    <div class="form-group">
+        <label for="emailRegister">Correo</label>
+        <input type="email" class="form-control" id="emailRegister" aria-describedby="emailHelp" formControlName="email">
+        <div class="text-danger" *ngIf="campoNoValido('email')">
+            El formato del email es incorrecto
+        </div>
     </div>
-  </div>
-  
-  <div class="form-group">
-    <label for="passwordRegister">Contraseña</label>
-    <input type="password" class="form-control" id="passwordRegister" formControlName="password">
-    <div class="text-danger" *ngIf="campoNoValido('password')">
-      La Contraseña debe ser Obligatoria
+
+    <div class="form-group">
+        <label for="passwordRegister">Contraseña</label>
+        <input type="password" class="form-control" id="passwordRegister" formControlName="password">
+        <div class="text-danger" *ngIf="campoNoValido('password')">
+            La Contraseña debe ser Obligatoria
+        </div>
+        <div class="text-danger" *ngIf="contrasenaValidos()">
+            Contraseña no validos
+        </div>
     </div>
-    <div class="text-danger" *ngIf="contrasenaValidos()">
-      Contraseña no validos
+
+    <div class="form-group">
+        <label for="confirmPasswordRegister">Confirmar Contraseña</label>
+        <input type="password" class="form-control" id="confirmPasswordRegister" formControlName="password1">
+        <div class="text-danger" *ngIf="contrasenaValidos()">
+            Contraseña no validos
+        </div>
     </div>
-  </div>
-  
-  <div class="form-group">
-    <label for="confirmPasswordRegister">Confirmar Contraseña</label>
-    <input type="password" class="form-control" id="confirmPasswordRegister" formControlName="password1">
-    <div class="text-danger" *ngIf="contrasenaValidos()">
-      Contraseña no validos
+    <div class="form-group mt-1">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" formControlName="terminos">
+            <label class="form-check-label" for="defaultCheck1">
+          <span><a class="link" href="https://drive.google.com/file/d/1iIgY0AX4v24mLz4jIbEDfm9ZIOhWlwXE/view?usp=sharing" target="_blank">Términos y Condiciones</a> y <a
+           class="link" href="https://drive.google.com/file/d/12eSbJWafqqT0hIQyx8kS7HKCX9dLuTNa/view?usp=sharing" target="_blank">Política de privacidad y protección de datos</a> </span>
+        </label>
+            <div class="text-danger" *ngIf="aceptaTerminos()">
+                Los Terminos y Condiciones deben ser marcado.
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="mt-4">
-    <button type="submit" class="btn btn-purple btn-block btn-lg">Crear una cuenta</button>
-  </div>
-  <div class="form-group mt-1">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" formControlName="terminos">
-      <label class="form-check-label" for="defaultCheck1">
-        <span><a href="https://drive.google.com/file/d/1iIgY0AX4v24mLz4jIbEDfm9ZIOhWlwXE/view?usp=sharing" target="_blank">Términos y Condiciones</a> y <a
-          href="https://drive.google.com/file/d/12eSbJWafqqT0hIQyx8kS7HKCX9dLuTNa/view?usp=sharing" target="_blank">Política de privacidad y protección de datos</a> </span>
-      </label>
-      <div class="text-danger" *ngIf="aceptaTerminos()">
-        Los Terminos y Condiciones deben ser marcado.
-      </div>
+    <div class="mt-4">
+        <button type="submit" class="btn btn-purple btn-block btn-lg">Crear una cuenta</button>
     </div>
-  </div>
-  
+
+
 </form>

@@ -1,9 +1,13 @@
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
     color: #fff;
     background-color: #8A178C;
-  }
-  
-  a {
-    color: black;
-  }
-  
+}
+
+.link {
+    color: #8A178C;
+}
+
+.link:hover {
+    border-bottom: 1px solid#8A178C;
+}
