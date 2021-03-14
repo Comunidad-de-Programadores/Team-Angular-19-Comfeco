@@ -1,9 +1,45 @@
 .note-has-grid .single-note-item .card {
-  border-radius: 10px; }
+    border-radius: 10px;
+}
 
-.note-has-grid .single-note-item .side-stick {
-  position: absolute;
-  width: 3px;
-  height: 35px;
-  left: 0;
-  background-color: rgba(79, 84, 103, 0.5); }
+.title {
+    text-align: center;
+}
+
+
+/* .note-has-grid .single-note-item .side-stick {
+    position: absolute;
+    width: 3px;
+    height: 35px;
+    left: 0;
+    background-color: rgba(79, 84, 103, 0.5); 
+}
+*/
+
+.card {
+    border-bottom: 5px solid #8A178C;
+    border-right: 5px solid #8A178C;
+    border-left: 5px solid #fdb602;
+    border-top: 5px solid #fdb602;
+}
+
+.image {
+    text-align: center;
+}
+
+img {
+    image-rendering: auto;
+    width: 75px;
+    height: 75px;
+}
+
+a {
+    background-color: #8A178C;
+    border-color: #8A178C;
+}
+
+a:hover {
+    border-color: #8A178C;
+    background-color: #8A178C;
+    color: #000;
+}

@@ -1,8 +1,8 @@
-<div class="card">
+<div class="card tarjeta-comunidad">
     <div class="card-header comunidad-header">
         <div class="float-left">Comunidades</div>
         <div class="float-right">
-            <a routerLink="/private/comunidades">Ver mas...</a>
+            <a class="ver-comunidad" routerLink="/private/comunidades">Ver mas...</a>
         </div>
     </div>
     <div class="card-body">
@@ -15,7 +15,7 @@
                     {{ item.name }}
                 </div>
                 <div class="float-right unirse">
-                    <a [href]="item.url" target="_blank">Unirse</a>
+                    <a class="link-comunidad" [href]="item.url" target="_blank">Unirse</a>
                 </div>
             </div>
             <hr style="margin-top:25px;">
