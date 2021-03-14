@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { IEventsCollection } from 'src/app/class/IEventsCollection';
+import {Component, OnInit} from '@angular/core';
+import {IEventsCollection} from 'src/app/class/IEventsCollection';
 import {DataService} from 'src/app/services/data.service';
-import { UserService } from 'src/app/services/user.service';
+import {UserService} from 'src/app/services/user.service';
+import {IGroupCollection} from '../../class/IGroupCollection';
+import {programmingLanguage} from 'src/assets/js/programmingLanguages.js';
 
 @Component({
   selector: 'app-my-info',
@@ -10,28 +12,32 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class MyInfoComponent implements OnInit {
 
-  insignias = [{},{},{},{}]
-  events:IEventsCollection[] = [];
-  
-  constructor(private dataService: DataService, public userService: UserService) { }
+  insignias = [{}, {}, {}, {}];
+  events: IEventsCollection[] = [];
+  groups: IGroupCollection[] = [];
 
-  ngOnInit(): void {
-    this.getEvents();
+  constructor(private dataService: DataService, public userService: UserService) {
   }
 
-  async getEvents(){
-    try{
-       this.events = await this.dataService.getEvents();
+  async ngOnInit(): Promise<void> {
+    this.getEvents();
+    this.groups = await this.dataService.getGroups('Java');
+    console.log(programmingLanguage);
+  }
+
+  async getEvents() {
+    try {
+      this.events = await this.dataService.getEvents();
       //console.log("Eventos: ",events);
-    }catch(error){
+    } catch (error) {
       console.log(error);
     }
   }
 
-  async setUserToEvent(uid:string, idEvent:string){
+  async setUserToEvent(uid: string, idEvent: string) {
     try {
       await this.dataService.setUserToEvent(uid, idEvent);
-      console.log("Presionar","Id: ", uid," Evento: ", idEvent);
+      console.log("Presionar", "Id: ", uid, " Evento: ", idEvent);
     } catch (error) {
       console.error(error.message)
     }

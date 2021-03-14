@@ -42,3 +42,7 @@ a:hover {
   color: #89188b;
   text-decoration: none !important;
 }
+
+.bg-purple {
+  background-color: #89188b !important;
+}
