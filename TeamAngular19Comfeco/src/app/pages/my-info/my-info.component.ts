@@ -3,7 +3,7 @@ import {IEventsCollection} from 'src/app/class/IEventsCollection';
 import {DataService} from 'src/app/services/data.service';
 import {UserService} from 'src/app/services/user.service';
 import {IGroupCollection} from '../../class/IGroupCollection';
-import {programmingLanguage} from 'src/assets/js/programmingLanguages.js';
+
 
 @Component({
   selector: 'app-my-info',
@@ -22,7 +22,7 @@ export class MyInfoComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.getEvents();
     this.groups = await this.dataService.getGroups('Java');
-    console.log(programmingLanguage);
+
   }
 
   async getEvents() {
