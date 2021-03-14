@@ -7,13 +7,15 @@ import {ProfileComponent} from './profile/profile.component';
 import {RouterModule} from '@angular/router';
 import {MyInfoRoutingModule} from './my-info-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GroupsComponent } from './groups/groups.component';
 
 
 @NgModule({
   declarations: [
     MyInfoComponent,
     EditProfileComponent,
-    ProfileComponent
+    ProfileComponent,
+    GroupsComponent
   ],
   imports: [
     CommonModule,
