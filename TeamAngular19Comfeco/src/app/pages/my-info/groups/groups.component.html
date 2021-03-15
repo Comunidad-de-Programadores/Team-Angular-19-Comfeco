@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-12 col-sm-12 col-md-4 col-lg-3 mx-0 px-0">
             <div class="px-2 sticky-top pt-2">
-                <div class="card border-dark  mb-3" *ngIf="currentGroup" style="background-color: #6c757d61;">
+                <div class="card border-dark borde mb-3" *ngIf="currentGroup" style="background-color: #6c757d61;">
                     <div class="card-header border-bottom-0 bg-transparent">
                         <div class="d-flex justify-content-between">
                             <div class="text-white">
@@ -17,13 +17,11 @@
                         </div>
                         <div class="div px-1 mt-2">
                             <div class="bg-dark p-2">
-                                <div class="d-flex justify-content-between">
+                                <div class="grupo">
                                     <div class="text-white">
                                         {{currentGroup.name}}
                                     </div>
-                                    <div>
-                                        <img [src]="currentGroup.urlImageLanguaje" alt="">
-                                    </div>
+                                    <img [src]="currentGroup.urlImageLanguaje" alt="">
                                 </div>
                             </div>
                         </div>
