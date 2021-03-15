@@ -30,3 +30,12 @@ button:hover {
     display: flex;
     justify-content: space-between;
 }
+
+.grupo-lenguaje {
+    background-color: #49A3A3;
+    border-radius: 5px;
+}
+
+.card-body {
+    background-color: #FFF;
+}
