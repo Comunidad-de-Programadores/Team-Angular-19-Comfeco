@@ -2,40 +2,44 @@
     <div class="text-center">
         <h4>{{event?.titlePhase}}</h4>
     </div>
-    <div class="card text-center" style="background-color:lightslategray;">
+    <div class="card text-center contador" style="background-color:lightslategray;">
         <div class="card-body">
             <div class="container">
                 <div class="row" style="font-size: 50px;">
-                  <div class="col-sm">
-                    {{ day }}
-                  </div>
-                  <div class="col-sm">
-                    {{ hour }}
-                  </div>
-                  <div class="col-sm">
-                    {{ minutes }}
-                  </div>
-                  <div class="col-sm">
-                    {{ seconds }}
-                  </div>
+                    <div class="col-sm" id="num-dia">
+                        {{ day }}
+                        <p class="tiempo">Dias</p>
+                    </div>
+                    <div class="col-sm" id="num-hora">
+                        {{ hour }}
+                        <p class="tiempo">Horas</p>
+                    </div>
+                    <div class="col-sm" id="num-minuto">
+                        {{ minutes }}
+                        <p class="tiempo">Minutos</p>
+                    </div>
+                    <div class="col-sm" id="num-segundo">
+                        {{ seconds }}
+                        <p class="tiempo">Segundos</p>
+                    </div>
                 </div>
             </div>
         </div>
         <div class="card-footer">
             <div class="container">
                 <div class="row" style="font-size: 15px;">
-                  <div class="col-sm">
-                    Dias
-                  </div>
-                  <div class="col-sm">
-                    Horas
-                  </div>
-                  <div class="col-sm">
-                    Minutos
-                  </div>
-                  <div class="col-sm">
-                    Segundos
-                  </div>
+                    <div class="col-sm" id="le-dia">
+                        Dias
+                    </div>
+                    <div class="col-sm" id="le-hora">
+                        Horas
+                    </div>
+                    <div class="col-sm" id="le-minuto">
+                        Minutos
+                    </div>
+                    <div class="col-sm" id="le-segundo">
+                        Segundos
+                    </div>
                 </div>
             </div>
         </div>
