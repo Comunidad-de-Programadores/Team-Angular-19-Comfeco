@@ -18,6 +18,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if(this.userService.user != null){
+      this.router.navigate(['/private', 'home']);
+    }
   }
 
   get emailNoValido(){
