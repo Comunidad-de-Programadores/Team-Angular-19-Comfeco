@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { IBadgesCollection } from 'src/app/class/IBadgeCollection';
 import {IEventsCollection} from 'src/app/class/IEventsCollection';
 import {DataService} from 'src/app/services/data.service';
 import {UserService} from 'src/app/services/user.service';
@@ -12,7 +13,7 @@ import {IGroupCollection} from '../../class/IGroupCollection';
 })
 export class MyInfoComponent implements OnInit {
 
-  insignias = [{}, {}, {}, {}];
+  badges:IBadgesCollection[] = [];
   events: IEventsCollection[] = [];
   groups: IGroupCollection[] = [];
 
@@ -22,7 +23,7 @@ export class MyInfoComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     this.getEvents();
     this.groups = await this.dataService.getGroups('Java');
-
+    this.getBadges()
   }
 
   async getEvents() {
@@ -40,6 +41,14 @@ export class MyInfoComponent implements OnInit {
       console.log("Presionar", "Id: ", uid, " Evento: ", idEvent);
     } catch (error) {
       console.error(error.message)
+    }
+  }
+
+  async getBadges(){
+    try {
+      this.badges = await this.dataService.getBadges();
+    } catch (error) {
+      console.log(error)
     }
   }
 }

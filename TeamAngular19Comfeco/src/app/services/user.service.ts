@@ -6,6 +6,8 @@ import { IUsersCollection } from '../class/IUsersCollection';
 import { SessionEnum } from '../enum/SessionEnum';
 import { CollectionEnum } from '../enum/CollectionEnum';
 import { IGenderSubCollection } from '../class/IGenderSubCollection';
+import { DataService } from './data.service';
+import { TypeBadges } from '../enum/TypesEnum';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +15,7 @@ import { IGenderSubCollection } from '../class/IGenderSubCollection';
 export class UserService {
   public user:User = null;
 
-  constructor(public auth: AngularFireAuth, private firestore:AngularFirestore) { 
+  constructor(public auth: AngularFireAuth, private firestore:AngularFirestore, private dataService:DataService) { 
     if(localStorage.getItem(SessionEnum.SESSION_USER)){
       this.user = JSON.parse(localStorage.getItem(SessionEnum.SESSION_USER));
     }else{
@@ -145,6 +147,7 @@ export class UserService {
   };
 
   await this.firestore.collection(CollectionEnum.users).doc(this.user.uid).update(userColl);
+  await this.dataService.setBadgeToUserByType(this.user.uid, TypeBadges.sociable)
   await this.createObjectUser(userColl);
  }
 

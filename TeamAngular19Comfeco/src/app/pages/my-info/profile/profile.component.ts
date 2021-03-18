@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import { IBadgesCollection } from 'src/app/class/IBadgeCollection';
+import { DataService } from 'src/app/services/data.service';
 import {UserService} from '../../../services/user.service';
 
 @Component({
@@ -8,10 +10,16 @@ import {UserService} from '../../../services/user.service';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor(public userService: UserService) {
+  userBadges:IBadgesCollection[] = []
+
+  constructor(public userService: UserService, private dataService:DataService) {
   }
 
   ngOnInit(): void {
+    this.getBadgesByUser();
   }
 
+  async getBadgesByUser(){
+    this.userBadges = await this.dataService.getBadgesByUser(this.userService.user.uid);
+  }
 }

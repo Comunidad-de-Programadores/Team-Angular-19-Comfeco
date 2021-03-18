@@ -21,13 +21,11 @@
                     <p class="card-text ">
                         {{userService.user?.biography}}
                     </p>
-                    <hr>
-                    <div class="d-flex justify-content-between">
-                        <!--TODO ¿¿??-->
-                        <img style="max-width: 30px" class="circle " src="https://via.placeholder.com/500" alt="">
-                        <img style="max-width: 30px" class="circle " src="https://via.placeholder.com/500" alt="">
-                        <img style="max-width: 30px" class="circle " src="https://via.placeholder.com/500" alt="">
-                        <img style="max-width: 30px" class="circle " src="https://via.placeholder.com/500" alt="">
+                    <div *ngIf="userBadges.length > 0">
+                        <hr>
+                        <div  class="d-flex justify-content-between">
+                            <img *ngFor="let badge of userBadges" style="max-width: 50px" class="circle " [src]="badge.urlImage" alt="">
+                        </div>
                     </div>
                 </div>
             </div>

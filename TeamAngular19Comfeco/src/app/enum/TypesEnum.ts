@@ -4,5 +4,7 @@
  */
 export enum TypeBadges{
     sociable = "sociable",
-    activa = "activa"
+    junior = "junior",
+    mid = "mid",
+    senior = "senior"
 }
