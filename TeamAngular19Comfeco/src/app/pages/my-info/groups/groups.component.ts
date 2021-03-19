@@ -4,6 +4,7 @@ import {IGroupCollection} from '../../../class/IGroupCollection';
 import {FormControl} from '@angular/forms';
 import {debounceTime} from 'rxjs/operators';
 import {UserService} from '../../../services/user.service';
+import {User} from '../../../class/User';
 
 @Component({
   selector: 'app-groups',
@@ -15,6 +16,7 @@ export class GroupsComponent implements OnInit {
 
   groupsFromService: IGroupCollection[] = [];
   filteredGroups: IGroupCollection[] = [];
+  usersOfCurrentGroup: User[] = [];
   inputSearchControl: FormControl = new FormControl('');
   currentGroup: IGroupCollection;
   enteringGroup = false;
@@ -48,7 +50,9 @@ export class GroupsComponent implements OnInit {
 
   async getCurrentGroup(): Promise<void> {
     this.currentGroup = await this.dataService.getGroupOfUser(this.userService.user.uid);
-    console.warn(this.currentGroup);
+    this.usersOfCurrentGroup = await this.dataService.getUsersOfGroup(this.currentGroup.idUsers);
+    console.warn('current group =>', this.currentGroup);
+    console.warn('current Users =>', await this.dataService.getUsersOfGroup(this.currentGroup.idUsers));
   }
 
   async joinUserToGroup(uid: string, idGroup: string): Promise<void> {
@@ -56,5 +60,10 @@ export class GroupsComponent implements OnInit {
     await this.dataService.setUserToGroup(uid, idGroup);
     await this.getCurrentGroup();
     this.enteringGroup = false;
+  }
+
+  async leaveGroup(): Promise<void> {
+    await this.dataService.quitUserOfGroup(this.userService.user.uid, this.currentGroup.id);
+    await this.getCurrentGroup();
   }
 }
