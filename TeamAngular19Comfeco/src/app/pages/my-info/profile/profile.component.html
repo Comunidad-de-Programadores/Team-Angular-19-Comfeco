@@ -34,8 +34,8 @@
             </div>
         </div>
         <div class="col-lg-6">
-            <div class="bg-light p-2">
-                <h5>Insignias</h5>
+            <div class="card bg-light p-2">
+                <h5><strong>Insignias</strong></h5>
                 <div class="div px-5">
                     <div class="row justify-content-center">
 
@@ -47,7 +47,7 @@
             </div>
 
             <div class="mt-4">
-                <h5>Actividad Reciente</h5>
+                <h5><strong>Actividad Reciente</strong></h5>
 
             </div>
 
@@ -55,7 +55,10 @@
         <div class="col-lg-3">
             <div class="card">
                 <div class="card-body">
-                    <small>Eventos de tu interés</small>
+                    <div class="d-flex justify-content-between evento-interes">
+                        <small><strong>Eventos de tu interés</strong></small>
+                        <a class="nav-link" id="pills-events-tab" data-toggle="pill" href="#pills-events" role="tab" aria-controls="pills-events" aria-selected="false">Ver más</a>
+                    </div>
                     <div style="height: 350px;overflow-y: scroll;overflow-x: hidden">
                         <div *ngFor="let event of userEvents">
                             <div class="row">
@@ -72,7 +75,7 @@
 
 
                     </div>
-                    <a class="nav-link px-5 py-2" id="pills-events-tab" data-toggle="pill" href="#pills-events" role="tab" aria-controls="pills-events" aria-selected="false">Ver más</a>
+
                 </div>
             </div>
         </div>

@@ -9,6 +9,10 @@
     border-bottom: 1px solid#89188b;
 }
 
+.evento-interes {
+    align-items: center;
+}
+
 #icon-facebook {
     color: #1093F4;
     font-size: 35px;
