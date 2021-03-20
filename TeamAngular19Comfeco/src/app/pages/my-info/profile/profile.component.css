@@ -8,3 +8,31 @@
 .link:hover {
     border-bottom: 1px solid#89188b;
 }
+
+#icon-facebook {
+    color: #1093F4;
+    font-size: 35px;
+}
+
+#icon-github {
+    color: #000;
+    font-size: 35px;
+}
+
+#icon-linkedin {
+    color: #FFF;
+    font-size: 30px;
+    background-color: #0A66C2;
+    border-radius: 50%;
+    padding: 3px;
+    margin-right: 5px;
+}
+
+#icon-twitter {
+    color: #FFF;
+    font-size: 30px;
+    background-color: #00A2F3;
+    border-radius: 50%;
+    padding: 3px;
+    margin-right: 5px;
+}

@@ -1,81 +1,80 @@
 <div class="container-fluid mt-3">
-  <div class="row mb-3">
-    <div class="col-lg-3">
-      <div class="card">
+    <div class="row mb-3">
+        <div class="col-lg-3">
+            <div class="card">
 
 
-        <div class="card-body">
-          <div class="text-right">
+                <div class="card-body">
+                    <div class="text-right">
 
-            <a class="link" routerLink="/private/my-info/edit-profile">Editar Perfil</a>
-          </div>
-          <div class="text-center">
-            <img class="circle img-fluid" [src]="userService.user.urlAvatar" alt="">
-          </div>
-          <h5 class="card-title text-center font-weight-bold mt-3">
-            {{userService.user?.displayName}}
-          </h5>
-          <h6 class="text-center text-muted">
-            Front End / UX
-          </h6>
-          <p class="card-text ">
-            {{userService.user?.biography}}
-          </p>
-          <div *ngIf="userBadges.length > 0">
-            <hr>
-            <div class="d-flex justify-content-between">
-              <img *ngFor="let badge of userBadges" style="max-width: 50px" class="circle " [src]="badge.urlImage"
-                   alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6">
-      <div class="bg-light p-2">
-        <h5>Insignias</h5>
-        <div class="div px-5">
-          <div class="row justify-content-center">
-
-            <div class="col text-center" *ngFor="let badge of userBadges">
-              <img [src]="badge.urlImage" class="img-fluid" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-4">
-        <h5>Actividad Reciente</h5>
-
-      </div>
-
-    </div>
-    <div class="col-lg-3">
-      <div class="card">
-        <div class="card-body">
-          <small>Eventos de tu interés</small>
-          <div style="height: 350px;overflow-y: scroll;overflow-x: hidden">
-            <div *ngFor="let event of userEvents">
-              <div class="row">
-                <div class="col">
-                  <img [src]="event.urlImage" class="img-fluid" alt="">
-                  <h5 class="text-center">{{event.title}}</h5>
-                  <div class="text-center">
-                    <button class="btn btn-secondary">Más Información</button>
-                  </div>
+                        <a class="link" routerLink="/private/my-info/edit-profile">Editar Perfil</a>
+                    </div>
+                    <div class="text-center">
+                        <img class="circle img-fluid" [src]="userService.user.urlAvatar" alt="">
+                    </div>
+                    <h5 class="card-title text-center font-weight-bold mt-3">
+                        {{userService.user?.displayName}}
+                    </h5>
+                    <h6 class="text-center text-muted">
+                        Front End / UX
+                    </h6>
+                    <p class="card-text ">
+                        {{userService.user?.biography}}
+                    </p>
+                    <div *ngIf="userBadges.length > 0">
+                        <hr>
+                        <div class="d-flex justify-content-between">
+                            <a *ngIf="userService.user.facebook" href="https://www.facebook.com/{{userService.user.facebook}}" target="_blank"><i class="fab fa-facebook" id="icon-facebook"></i></a>
+                            <a *ngIf="userService.user.github" href="https://www.github.com/{{userService.user.github}}" target="_blank"><i class="fab fa-github" id="icon-github"></i></a>
+                            <a *ngIf="userService.user.linkedin" href="https://www.{{userService.user.linkedin}}" target="_blank"><i class="fab fa-linkedin-in" id="icon-linkedin"></i></a>
+                            <a *ngIf="userService.user.twitter" href="https://www.twitter.com/{{userService.user.twitter}}" target="_blank"><i class="fab fa-twitter" id="icon-twitter"></i></a>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <hr>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="bg-light p-2">
+                <h5>Insignias</h5>
+                <div class="div px-5">
+                    <div class="row justify-content-center">
+
+                        <div class="col text-center" *ngFor="let badge of userBadges">
+                            <img [src]="badge.urlImage" class="img-fluid" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
 
+            <div class="mt-4">
+                <h5>Actividad Reciente</h5>
 
-          </div>
-          <a class="nav-link px-5 py-2" id="pills-events-tab"
-             data-toggle="pill" href="#pills-events"
-             role="tab" aria-controls="pills-events" 
-             aria-selected="false">Ver más</a>
+            </div>
+
         </div>
-      </div>
+        <div class="col-lg-3">
+            <div class="card">
+                <div class="card-body">
+                    <small>Eventos de tu interés</small>
+                    <div style="height: 350px;overflow-y: scroll;overflow-x: hidden">
+                        <div *ngFor="let event of userEvents">
+                            <div class="row">
+                                <div class="col">
+                                    <img [src]="event.urlImage" class="img-fluid" alt="">
+                                    <h5 class="text-center">{{event.title}}</h5>
+                                    <div class="text-center">
+                                        <button class="btn btn-secondary">Más Información</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+
+
+                    </div>
+                    <a class="nav-link px-5 py-2" id="pills-events-tab" data-toggle="pill" href="#pills-events" role="tab" aria-controls="pills-events" aria-selected="false">Ver más</a>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
