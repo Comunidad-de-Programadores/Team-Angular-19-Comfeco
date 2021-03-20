@@ -1,44 +1,71 @@
 <div class="container-fluid">
-  <div class="row my-5">
-    <div class="col-lg-6 offset-lg-3 text-center">
-      <div class="col-12">
-        <h2>Bienvenidos a Community Fest and Code</h2>
-      <h3>!Conoce gente, aprende y gana!</h3>
-      <p>La próxima edición regresa el 2022, en la cual se planea involucrar a todos los programadores
-        independientemente del área de conocimiento que se encuentre, todo con un mismo proposito, aprender en
-        comunidad.</p>
-      </div>
+    <div class="row my-5">
+        <div class="col-lg-6 offset-lg-3 text-center">
+            <div class="col-12">
+                <h2>Bienvenidos a Community Fest and Code</h2>
+                <h3>!Conoce gente, aprende y gana!</h3>
+                <p>La próxima edición regresa el 2022, en la cual se planea involucrar a todos los programadores independientemente del área de conocimiento que se encuentre, todo con un mismo proposito, aprender en comunidad.
+                </p>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 <div class="container-fluid mt-3">
-  <div class="row">
-    <div class="col-lg-3">
-      <app-card-comunidad></app-card-comunidad>
+    <div class="row">
+        <div class="col-lg-3">
+            <app-card-comunidad></app-card-comunidad>
+        </div>
+        <div class="col-lg-6">
+
+            <div>
+                <h4 class="text-center my-2">Ellos ya creen en esta iniciativa</h4>
+                <app-carousel-content-creators *ngIf="contentCreators" [contentCreators]="contentCreators"></app-carousel-content-creators>
+            </div>
+
+            <div class="my-4">
+                <app-carousel-sponsors *ngIf="sponsors" [sponsors]="sponsors"></app-carousel-sponsors>
+            </div>
+            <div class="my-5">
+
+
+                <app-contador></app-contador>
+
+
+            </div>
+
+        </div>
+        <div class="col-lg-3">
+            <div class="card talleres">
+                <div class="card-header">
+                    <div class="d-flex justify-content-between ">
+                        <p>Talleres</p>
+                        <a class="ver" href=" ">Ver más...</a>
+                    </div>
+                    <div class="text-center ">
+                        <select class="filtro" name=" " id=" ">
+                      <option value=" ">Frontend</option>
+                      <option value=" ">Backend</option>
+                      <option value=" ">DevOps</option>
+                      <option value=" ">Video Game Developers</option>
+                      <option value=" ">UI/UX</option>
+                      <option value=" ">Database Developer</option>
+                      <option value=" ">Cloud Computing</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="card-body ">
+                    <div class="taller ">
+                        <div class="text-black ">
+                            State of Javascript
+                        </div>
+                        <hr>
+                        <div class="text-black ">
+                            IA con Python
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-lg-6">
-
-      <div>
-        <h4 class="text-center my-2">Ellos ya creen en esta iniciativa</h4>
-        <app-carousel-content-creators *ngIf="contentCreators"
-                                       [contentCreators]="contentCreators"></app-carousel-content-creators>
-      </div>
-
-      <div class="my-4">
-        <app-carousel-sponsors *ngIf="sponsors" [sponsors]="sponsors"></app-carousel-sponsors>
-      </div>
-      <div class="my-5">
-
-
-          <app-contador></app-contador>
-
-
-      </div>
-
-    </div>
-    <div class="col-lg-3">
-
-    </div>
-  </div>
 </div>

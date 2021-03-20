@@ -4,7 +4,7 @@ import {IEventsCollection} from 'src/app/class/IEventsCollection';
 import {DataService} from 'src/app/services/data.service';
 import {UserService} from 'src/app/services/user.service';
 import {IGroupCollection} from '../../class/IGroupCollection';
-
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-my-info',
@@ -17,7 +17,7 @@ export class MyInfoComponent implements OnInit {
   events: IEventsCollection[] = [];
   groups: IGroupCollection[] = [];
 
-  constructor(private dataService: DataService, public userService: UserService) {
+  constructor(private dataService: DataService, public userService: UserService, private toastr: ToastrService) {
   }
 
   async ngOnInit(): Promise<void> {
@@ -39,7 +39,9 @@ export class MyInfoComponent implements OnInit {
     try {
       await this.dataService.setUserToEvent(uid, idEvent);
       console.log("Presionar", "Id: ", uid, " Evento: ", idEvent);
+      this.toastr.success('Se registro exitosamente');
     } catch (error) {
+      this.toastr.error(error.message);
       console.error(error.message)
     }
   }
